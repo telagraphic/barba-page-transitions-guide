@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "browser-sync start --server --files 'css/*.css, ./*.html, js/*.js'"
+    "server": "browser-sync start --server --ss 'views' --files 'css/*.css, views/*.html, js/*.js'"
   },
   "keywords": [],
   "author": "",
