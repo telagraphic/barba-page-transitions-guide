@@ -1,6 +1,16 @@
 nav {
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 1rem 0;
+
+  font-size: 1rem;
+  font-weight: 600;
 
   a {
+    padding: 0 .5rem 0 0;
+
     text-decoration: none;
     color: black;
 

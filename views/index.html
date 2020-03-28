@@ -27,22 +27,81 @@
       font-display: swap;
       font-weight: 600;
     }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Bold.woff2') format('woff2'), url('fonts/Inter-Bold.woff') format('woff');
+      font-display: swap;
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-ExtraBold.woff2') format('woff2'), url('fonts/Inter-ExtraBold.woff') format('woff');
+      font-display: swap;
+      font-weight: 800;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Black.woff2') format('woff2'), url('fonts/Inter-Black.woff') format('woff');
+      font-display: swap;
+      font-weight: 900;
+    }
   </style>
 </head>
 
 <body data-barba="wrapper">
   <nav>
-    <a href="about.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="gallery.html">Photos</a>
+    <a href="gallery.html">Gallery</a>
     <a href="posts.html">Posts</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main data-barba="container" data-barba-namespace="index">
-    <header>
-      <h1>Barba.js Page Transitions 101</h1>
-    </header>
+    <article class="index">
+      <header>
+        <h1>Barba.js Page Transitions 101</h1>
+      </header>
+      <section class="index__hero">
+        <img src="../img/lifecycle-diagram.png" alt="">
+      </section>
+
+      <section class="index__intro">
+        <p>
+          This is a project to explore and experiment with how barba.js works. There are many examples
+          of how to use this page transition library. Each git branch has a different transition style with slightly different page layout styles.
+        </p>
+        <p>
+          This is a self-learning project to better understand how to use page transitions in real life projects.
+          I hope you like it.
+        </p>
+      </section>
+
+      <section class="index__resources">
+        <h2>Learning Resources</h2>
+        <ul>
+          <li>
+            <a href="https://github.com/barbajs/barba">Barba.js Repo</a>
+          </li>
+          <li>
+            <a href="https://barba.js.org/docs/getstarted/intro/">Barba.js Docs</a>
+          </li>
+          <li>
+            <a href="https://www.superhi.com/courses/smooth-page-transitions-effects">SuperHi Course</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=aMucZErEdZg">Design Course Youtube Video</a>
+          </li>
+          <li>
+            <a href="https://github.com/karanmhatre1/barba-page-transition-example">karanmhatre1 Github Repo Example</a>
+          </li>
+        </ul>
+      </section>
+    </article>
+
 
   </main>
   <footer>

@@ -12,7 +12,6 @@
 
   <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
-
   <style>
     @font-face {
       font-family: "Inter";
@@ -27,22 +26,71 @@
       font-display: swap;
       font-weight: 600;
     }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Bold.woff2') format('woff2'), url('fonts/Inter-Bold.woff') format('woff');
+      font-display: swap;
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-ExtraBold.woff2') format('woff2'), url('fonts/Inter-ExtraBold.woff') format('woff');
+      font-display: swap;
+      font-weight: 800;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Black.woff2') format('woff2'), url('fonts/Inter-Black.woff') format('woff');
+      font-display: swap;
+      font-weight: 900;
+    }
   </style>
 </head>
 
 <body data-barba="wrapper">
   <nav>
-    <a href="about.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="gallery.html">Photos</a>
+    <a href="gallery.html">Gallery</a>
     <a href="posts.html">Posts</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main data-barba="container" data-barba-namespace="about">
-    <header>
-      <h1>About</h1>
-    </header>
+    <article class="about">
+      <header>
+        <h1>About</h1>
+        <p>
+          Barba.js comes with several plugins for additional functionality.
+        </p>
+      </header>
+
+      <section class="about__description">
+        <h2>CORE</h2>
+        <p>
+          The core of <b>barba.js</b>, you need this to get page transitions working.
+        </p>
+
+        <h2>CSS</h2>
+        <p>
+          Use css animations & transitions to power page transitions. Useful if you don't know javascript.
+        </p>
+
+        <h2>ROUTER</h2>
+        <p>
+          Use css animations & transitions to power page transitions. Useful if you don't know javascript.
+        </p>
+
+        <h2>PREFETCH</h2>
+        <p>
+          Use css animations & transitions to power page transitions. Useful if you don't know javascript.
+        </p>
+      </section>
+    </article>
+
 
   </main>
   <footer>

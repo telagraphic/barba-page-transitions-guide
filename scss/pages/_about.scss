@@ -1,0 +1,14 @@
+@import '../config/variables';
+
+.about {
+  display: flex;
+  flex-direction: column;
+  width: $article-width;
+
+  font-size: 2rem;
+
+
+  &__description {
+    font-size: 1.5rem;
+  }
+}

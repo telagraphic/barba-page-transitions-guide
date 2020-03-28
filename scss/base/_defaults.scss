@@ -1,0 +1,19 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+
+  }
+}

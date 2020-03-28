@@ -1,0 +1,28 @@
+@import '../config/variables';
+
+.index {
+  display: flex;
+  flex-direction: column;
+  width: $article-width;
+
+  &__hero {
+
+  }
+
+  &__intro {
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  &__resources {
+    font-size: 2rem;
+
+    ul {
+      list-style-type: disc;
+    }
+    li {
+      padding: .5rem;
+    }
+  }
+}

@@ -6,10 +6,12 @@ html {
 body {
   min-height: 100%;
   display: grid;
+  grid-template-areas: "nav" "main" "footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
 
-  padding: 1rem;
+
+  padding: 0 1rem;
 
   font-family: "Inter";
   font-weight: 500;

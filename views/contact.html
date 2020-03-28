@@ -27,22 +27,46 @@
       font-display: swap;
       font-weight: 600;
     }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Bold.woff2') format('woff2'), url('fonts/Inter-Bold.woff') format('woff');
+      font-display: swap;
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-ExtraBold.woff2') format('woff2'), url('fonts/Inter-ExtraBold.woff') format('woff');
+      font-display: swap;
+      font-weight: 800;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Black.woff2') format('woff2'), url('fonts/Inter-Black.woff') format('woff');
+      font-display: swap;
+      font-weight: 900;
+    }
   </style>
 </head>
 
 <body data-barba="wrapper">
   <nav>
-    <a href="about.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="gallery.html">Photos</a>
+    <a href="gallery.html">Gallery</a>
     <a href="posts.html">Posts</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main data-barba="container" data-barba-namespace="contact">
-    <header>
-      <h1>Gallery</h1>
-    </header>
+    <article class="contact">
+      <header>
+        <h1>Contact</h1>
+      </header>
+    </article>
+
 
   </main>
   <footer>

@@ -1,0 +1,6 @@
+@import '../config/variables';
+
+.posts {
+  display: flex;
+  width: $article-width;
+}
