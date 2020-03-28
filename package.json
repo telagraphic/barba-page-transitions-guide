@@ -5,12 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "browser-sync start --server --ss 'views' --files 'css/*.css, views/*.html, js/*.js'"
+    "dev:scss": "node-sass --output-style nested -o css scss/styles.scss",
+    "dev:watch": "onchange 'scss' -- npm run dev:scss",
+    "dev:serve": "browser-sync start --server --ss 'views' --files 'scss/*.scss, views/*.html, js/*.js'",
+    "dev": "run-p dev:watch dev:serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.26.7"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0"
   }
 }

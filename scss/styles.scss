@@ -1,0 +1,18 @@
+@import 'base/normalize';
+@import 'base/links';
+@import 'base/typography';
+
+@import 'config/functions';
+@import 'config/mixins';
+@import 'config/variables';
+
+@import 'globals/site';
+@import 'globals/nav';
+@import 'globals/main';
+@import 'globals/footer';
+
+@import 'pages/index';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/gallery';
+@import 'pages/posts';
