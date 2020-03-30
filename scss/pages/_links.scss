@@ -1,0 +1,25 @@
+@import '../config/variables';
+
+.links {
+  display: flex;
+  flex-direction: column;
+  width: $article-width;
+
+  p {
+    font-size: 2rem;
+  }
+
+
+
+  &__section {
+    padding: 1.5rem 0 .5rem 0;
+    font-size: 2rem;
+
+    ul {
+      list-style-type: disc;
+    }
+    li {
+      padding: .5rem;
+    }
+  }
+}

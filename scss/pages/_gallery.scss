@@ -9,17 +9,18 @@
   &__photos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: .25rem;
+    grid-row-gap: .25rem;
   }
 
   &__photo {
     width: 100%;
-    // padding-top: 56.25%;
-
   }
 
   &__photo-img {
     max-width: 100%;
     height: 100%;
+    height: auto;
   }
 
 }

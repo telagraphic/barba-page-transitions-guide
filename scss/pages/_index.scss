@@ -13,9 +13,35 @@
     p {
       font-size: 2rem;
     }
+
+    a {
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: $gray-dark-0;
+      }
+    }
   }
 
-  &__resources {
+  &__toc {
+    padding: 1.5rem 0 .5rem 0;
+    font-size: 2rem;
+
+    p {
+      font-size: 2rem;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: $gray-dark-0;
+      }
+    }
+
+    padding: 1.5rem 0 .5rem 0;
     font-size: 2rem;
 
     ul {
