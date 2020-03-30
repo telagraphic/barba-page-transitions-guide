@@ -10,9 +10,11 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
 
-
-  padding: 0 1rem;
-
   font-family: "Inter";
   font-weight: 500;
+
+  background: $very-light-gray;
+  background: $very-dark-gray;
+  background: $dark-purple;
+
 }

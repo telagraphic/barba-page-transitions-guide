@@ -10,17 +10,9 @@
   }
 
   &__intro {
+
     p {
       font-size: 2rem;
-    }
-
-    a {
-      text-decoration: underline;
-
-      &:hover,
-      &:focus {
-        color: $gray-dark-0;
-      }
     }
   }
 
@@ -30,15 +22,6 @@
 
     p {
       font-size: 2rem;
-    }
-
-    a {
-      text-decoration: underline;
-
-      &:hover,
-      &:focus {
-        color: $gray-dark-0;
-      }
     }
 
     padding: 1.5rem 0 .5rem 0;

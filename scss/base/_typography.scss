@@ -3,6 +3,16 @@
 body {
   color: $black-10;
   line-height: 3rem;
+
+  color: $lace;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  color: $soft-cyan;
 }
 
 h1 {
@@ -11,11 +21,6 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   font-weight: 700;
 }
