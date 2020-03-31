@@ -1,0 +1,42 @@
+@import '../config/variables';
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: baseline;
+
+  padding: 1rem 0;
+
+  background: $blue;
+
+
+  h2 {
+    padding: 0 0 0 20vw;
+  }
+
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  a {
+    padding: 0 .5rem 0 0;
+
+    text-decoration: none;
+    color: $pink;
+    // color: darken($pink, 7%);
+
+    &:hover {
+      text-decoration: none;
+      color: lighten($pink, 5%);
+    }
+  }
+
+}

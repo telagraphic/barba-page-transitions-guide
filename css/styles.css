@@ -312,7 +312,9 @@ h1,
 h2,
 h3,
 h4 {
-  color: #66d9ef; }
+  color: #66d9ef;
+  padding: 0;
+  margin: 0; }
 
 h1 {
   font-size: 2.5rem;
@@ -320,6 +322,10 @@ h1 {
 
 h2 {
   font-size: 2.25rem;
+  font-weight: 700; }
+
+h3 {
+  font-size: 2rem;
   font-weight: 700; }
 
 img {
@@ -354,7 +360,7 @@ html {
 body {
   min-height: 100%;
   display: grid;
-  grid-template-areas: "nav" "main" "footer";
+  grid-template-areas: "header" "main" "footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   font-family: "Inter";
@@ -363,24 +369,30 @@ body {
   background: #282a36;
   background: #383a59; }
 
-nav {
-  grid-area: nav;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: .375rem 0;
-  font-size: 1rem;
-  font-weight: 600;
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: baseline;
+  padding: 1rem 0;
   background: #6272a4; }
+  .header h2 {
+    padding: 0 0 0 20vw; }
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600; }
   nav a {
     padding: 0 .5rem 0 0;
     text-decoration: none;
     color: #ff79c6; }
     nav a:hover {
       text-decoration: none;
-      color: #50fa7b; }
+      color: #ff93d1; }
 
 main {
   grid-area: main;
@@ -388,10 +400,19 @@ main {
   justify-content: center;
   padding: 3rem 0; }
 
-footer {
+.page header {
+  padding: 1rem 0; }
+
+.footer {
   grid-area: footer;
   padding: 1rem;
-  background: #bd93f9; }
+  background: #6272a4; }
+  .footer__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 20vw;
+    width: 60vw; }
 
 .index {
   display: flex;
@@ -452,3 +473,18 @@ footer {
 .posts {
   display: flex;
   width: 60vw; }
+  .posts__list {
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 2rem; }
+
+.post {
+  display: flex;
+  flex-direction: column; }
+  .post__title {
+    color: #66d9ef;
+    transition: color .5s ease; }
+    .post__title:hover, .post__title:focus {
+      color: #ba8ef9; }
+  .post__desc {
+    font-size: 1.5rem; }

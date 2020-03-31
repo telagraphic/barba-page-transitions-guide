@@ -6,7 +6,7 @@ html {
 body {
   min-height: 100%;
   display: grid;
-  grid-template-areas: "nav" "main" "footer";
+  grid-template-areas: "header" "main" "footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
 

@@ -1,8 +1,18 @@
-footer {
-  grid-area: footer;
+@import '../config/variables';
 
+.footer {
+  grid-area: footer;
   padding: 1rem;
 
-  background: $purple;
+  background: $blue;
 
+  &__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0 0 0 20vw;
+
+    width: $article-width;
+  }
 }

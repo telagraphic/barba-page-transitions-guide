@@ -3,4 +3,41 @@
 .posts {
   display: flex;
   width: $article-width;
+
+  &__list {
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 2rem;
+  }
 }
+
+
+.post {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+
+    color: $soft-cyan;
+    transition: color .5s ease;
+
+    &:hover,
+    &:focus {
+      color: darken($purple, 1%);
+      // color: $blue;
+    }
+
+  }
+  &__desc {
+    font-size: 1.5rem;
+  }
+}
+
+// <article class="post">
+//   <h3 class="post__title">Post Title Goes Here</h3>
+//   <p class="post__desc">
+//     This is a project to explore and experiment with how barba.js works.
+//     There are many examples of how to use this page transition library.
+//     Each git branch has a different transition style with slightly different page layout styles.
+//   </p>
+// </article>
