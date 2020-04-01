@@ -1,3 +1,5 @@
+@import '../config/variables';
+
 main {
   grid-area: main;
   display: flex;
@@ -11,4 +13,21 @@ main {
   header {
     padding: 1rem 0;
   }
+}
+
+
+.main-green {
+  background: $green-lite;
+}
+
+.main-pink {
+  background: $pink-dark;
+}
+
+.main-red {
+  background: $red;
+}
+
+.main-cyan {
+  background: $cyan;
 }

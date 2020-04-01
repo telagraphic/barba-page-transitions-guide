@@ -5,12 +5,11 @@
   flex-direction: column;
   width: $article-width;
 
-
   &__photos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: .25rem;
-    grid-row-gap: .25rem;
+    // grid-column-gap: .25rem;
+    // grid-row-gap: .25rem;
   }
 
   &__photo {

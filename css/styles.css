@@ -460,9 +460,7 @@ main {
   width: 60vw; }
   .gallery__photos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: .25rem;
-    grid-row-gap: .25rem; }
+    grid-template-columns: repeat(2, 1fr); }
   .gallery__photo {
     width: 100%; }
   .gallery__photo-img {
