@@ -15,3 +15,13 @@
 # CSS
 
 - [Grid Sticky Footer](https://dev.to/niorad/keeping-the-footer-at-the-bottom-with-css-grid-15mf)
+
+
+
+# Notes
+
+## Hooks
+
+**beforeEnter** will display container visible on the page before **enter** hook, will need to set **opacity:0** at top of **beforeEnter** hook if animating to **oapcity:1** on the **enter** hook.
+
+## Namespaces

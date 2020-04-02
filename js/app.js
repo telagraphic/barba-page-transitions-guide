@@ -34,6 +34,7 @@ barba.init({
     beforeEnter({current, next, trigger}) {
       const pageTitle = document.querySelector('.header__title');
       pageTitle.innerText = next.container.getAttribute('data-title');
+      next.container.style.opacity = 0;
 
       return new Promise(resolve => {
 
@@ -60,7 +61,7 @@ barba.init({
 
         timeline
           .set(next.container, {opacity: 0})
-          .to(next.container, {opacity: 1, duration: .5})
+          .to(next.container, {opacity: 1, duration: .25})
       })
     }
   }],
