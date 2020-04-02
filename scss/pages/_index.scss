@@ -16,6 +16,15 @@
     }
   }
 
+  a {
+    color: $sandstone;
+
+    &:hover,
+    &:focus {
+      color: $orange;
+    }
+  }
+
   &__toc {
     padding: 1.5rem 0 .5rem 0;
     font-size: 2rem;

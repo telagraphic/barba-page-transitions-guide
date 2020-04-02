@@ -341,18 +341,6 @@ ul {
     padding: 0;
     margin: 0; }
 
-a {
-  text-decoration: none;
-  color: black; }
-  a:hover, a:focus {
-    text-decoration: underline; }
-
-a {
-  text-decoration: underline;
-  color: #ffb86c; }
-  a:hover, a:focus {
-    color: #f7a349; }
-
 html {
   width: 100%;
   height: 100%; }
@@ -390,7 +378,7 @@ nav {
     padding: 0 .5rem 0 0;
     text-decoration: none;
     color: #ff79c6; }
-    nav a:hover {
+    nav a:hover, nav a:focus {
       text-decoration: none;
       color: #ff93d1; }
 
@@ -402,6 +390,18 @@ main {
 
 .page header {
   padding: 1rem 0; }
+
+.main-green {
+  background: #82fba0; }
+
+.main-pink {
+  background: #ff46b0; }
+
+.main-red {
+  background: #ff5555; }
+
+.main-cyan {
+  background: #8be9fd; }
 
 .footer {
   grid-area: footer;
@@ -420,6 +420,10 @@ main {
   width: 60vw; }
   .index__intro p {
     font-size: 2rem; }
+  .index a {
+    color: #cfcfc2; }
+    .index a:hover, .index a:focus {
+      color: #ffb86c; }
   .index__toc {
     padding: 1.5rem 0 .5rem 0;
     font-size: 2rem;
@@ -446,9 +450,18 @@ main {
   width: 60vw; }
   .links p {
     font-size: 2rem; }
+  .links a {
+    text-decoration: underline;
+    color: #cfcfc2;
+    transition: color .25s ease-in-out; }
+    .links a:hover, .links a:focus {
+      color: #f7a349; }
   .links__section {
-    padding: 1.5rem 0 .5rem 0;
-    font-size: 2rem; }
+    display: grid;
+    grid-template-areas: "header" "content";
+    grid-template-rows: 10vh 90vh;
+    font-size: 2rem;
+    height: 100vh; }
     .links__section ul {
       list-style-type: disc; }
     .links__section li {
