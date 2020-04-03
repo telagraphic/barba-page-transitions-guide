@@ -491,7 +491,8 @@ main {
 
 .post {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  opacity: 0; }
   .post__title {
     color: #66d9ef;
     transition: color .5s ease; }

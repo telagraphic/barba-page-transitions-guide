@@ -19,6 +19,8 @@ barba.init({
     },
     enter({current, next, trigger}) {
       next.container.style.opacity = 0;
+      const pageTitle = document.querySelector('.header__title');
+      pageTitle.innerText = next.container.getAttribute('data-title');
 
       return new Promise(resolve => {
 
@@ -78,10 +80,8 @@ barba.init({
         })
 
         timeline
-          .set('article.post', {opacity: 0})
-          .to('article.post', {opacity: 1, delay: .5, stagger: .25}, )
+          .to('article.post', {opacity: 1, delay: .1, stagger: .25}, )
       })
-
     }
   }],
   debug: true

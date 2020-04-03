@@ -24,6 +24,8 @@
 
 **beforeEnter** will display container visible on the page before **enter** hook, will need to set **opacity:0** at top of **beforeEnter** hook if animating to **opacity:1** on the **enter** hook.
 
+**Fadein Stagger**: set the original styles to **opacity:0** then do changes in **to()** methods.
+
 ## Namespaces
 
 
