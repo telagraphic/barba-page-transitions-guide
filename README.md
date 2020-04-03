@@ -22,6 +22,13 @@
 
 ## Hooks
 
-**beforeEnter** will display container visible on the page before **enter** hook, will need to set **opacity:0** at top of **beforeEnter** hook if animating to **oapcity:1** on the **enter** hook.
+**beforeEnter** will display container visible on the page before **enter** hook, will need to set **opacity:0** at top of **beforeEnter** hook if animating to **opacity:1** on the **enter** hook.
 
 ## Namespaces
+
+
+## Data
+
+### next/current
+
+**data.next.html** will return a string, will need to be parsed into HTML with the (DOMParser)[https://developer.mozilla.org/en-US/docs/Web/API/DOMParser].

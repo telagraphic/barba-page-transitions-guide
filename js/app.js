@@ -35,6 +35,54 @@ barba.init({
           .to('.header__title', {opacity: 1, duration: .5}, 0)
       })
     }
+  },
+  {
+    name: 'posts-fade',
+    from: {
+      namespace: [ 'index', 'about', 'links', 'gallery']
+    },
+    to: {
+      namespace: ['posts']
+    },
+    leave({current, next, trigger}) {
+      console.log("leaving /posts");
+
+      return new Promise(resolve => {
+
+        const timeline = gsap.timeline({
+          onComplete() {
+            resolve();
+            current.container.remove();
+          }
+        })
+
+        timeline
+          .to('.post', {opacity: 0, stagger: .5})
+      })
+
+    },
+    enter({current, next, trigger}) {
+      console.log("entering /posts");
+
+      // const posts = document.querySelectorAll('article.post');
+      // posts.forEach(post => {
+      //   post.style.opacity = 0;
+      // });
+
+      return new Promise(resolve => {
+
+        const timeline = gsap.timeline({
+          onComplete() {
+            resolve();
+          }
+        })
+
+        timeline
+          .set('article.post', {opacity: 0})
+          .to('article.post', {opacity: 1, delay: .5, stagger: .25}, )
+      })
+
+    }
   }],
   debug: true
 })
