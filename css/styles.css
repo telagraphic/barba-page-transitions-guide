@@ -306,6 +306,8 @@ template {
 body {
   color: #161616;
   line-height: 3rem;
+  font-family: "Inter";
+  font-weight: 500;
   color: #f8f8f0; }
 
 h1,
@@ -351,8 +353,6 @@ body {
   grid-template-areas: "header" "main" "footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  font-family: "Inter";
-  font-weight: 500;
   background: #f8f8f2;
   background: #282a36;
   background: #383a59; }

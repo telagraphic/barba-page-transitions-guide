@@ -1,6 +1,22 @@
 barba.init({
   transitions: [{
     name: 'fade',
+    once({current, next, trigger}) {
+      return new Promise(resolve => {
+
+        const timeline = gsap.timeline({
+          onComplete() {
+            resolve();
+          }
+        })
+
+        timeline
+          .set('nav a', {opacity: 0})
+          .set('.header__title', {y: '-100%'})
+          .to('nav a', {opacity: 1, stagger: .15, delay: .25}, 0)
+          .to('.header__title', {y: '0%', ease: "power4.out"}, 0);
+      })
+    },
     leave({current, next, trigger}) {
       return new Promise(resolve => {
 
@@ -14,7 +30,7 @@ barba.init({
         timeline
           .from(current.container, {opacity: 1}, 0)
           .to(current.container, {opacity: 0, duration: .5}, 0)
-          .to('.header__title', {opacity: 0, duration: .5}, 0)
+          .to('.header__title', {y: -100, ease: 'sine'}, 0)
       })
     },
     enter({current, next, trigger}) {
@@ -31,10 +47,9 @@ barba.init({
         })
 
         timeline
-          .set('.header__title', {opacity: 0}, 0)
           .set(next.container, {opacity: 0}, 0)
           .to(next.container, {opacity: 1, duration: .5}, 0)
-          .to('.header__title', {opacity: 1, duration: .5}, 0)
+          .to('.header__title', {y: 0, ease: 'sine'}, 0)
       })
     }
   }],
@@ -63,7 +78,7 @@ barba.init({
         })
 
         timeline
-          .to('article.post', {opacity: 0, stagger: .1})
+          .to('.posts__list', {opacity: 0})
       })
     }
   }],
