@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev:scss": "node-sass --output-style nested -o css scss/styles.scss",
     "dev:watch": "onchange 'scss' -- npm run dev:scss",
     "dev:serve": "browser-sync start --server --ss 'views' --files 'scss/**/*.scss, views/*.html, js/*.js'",
-    "dev": "run-p dev:watch dev:serve"
+    "server": "run-p dev:watch dev:serve"
   },
   "keywords": [],
   "author": "",
