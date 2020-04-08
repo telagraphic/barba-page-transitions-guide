@@ -8,8 +8,9 @@
 
   &__section {
 
+    font-size: calc(16px + (38 - 16) * ((100vw - 320px) / (3000 - 320)));
+
     p {
-      font-size: 2rem;
     }
 
     a {
@@ -27,9 +28,7 @@
     }
 
     ol {
-      font-size: 2rem;
       li {
-        font-size: 2rem;
       }
     }
   }
