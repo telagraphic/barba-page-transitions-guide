@@ -49,6 +49,53 @@ barba.init({
         })
       }
     },
+    {
+      name: "hooks",
+      from: {
+        namespace: ['hooks']
+      },
+      to: {
+        namespace: ['index']
+      },
+      beforeLeave({current, next, trigger}) {
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'before';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+              current.container.remove();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      leave({current, next, trigger}) {
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'leave';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+              current.container.remove();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      }
+    }
   ],
   debug: true
 })

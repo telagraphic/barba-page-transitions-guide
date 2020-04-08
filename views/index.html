@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Barba.js Page Transitions</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
   <link rel="stylesheet" href="css/styles.css">
+
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -62,7 +64,7 @@
     </section>
     <nav>
       <a href="index.html">Home</a>
-      <a href="resources.html">Resources</a>
+      <a href="hooks.html">Hooks</a>
     </nav>
   </header>
 
@@ -70,64 +72,79 @@
   <main data-barba="container" data-barba-namespace="index" data-title="Intro">
     <article class="index page">
       <header>
-        <h1>Barba.js Page Transitions 101</h1>
+        <h1>Hooks</h1>
       </header>
 
       <section class="index__section">
+        <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
+      </section>
+
+      <section class="index__section">
         <p>
-          This is a project to explore and experiment with how <a href="https://barba.js.org/">barba.js</a> works.
-          This is a high concept overview to get you started, it's the result of my own learning.
-          If you want a full in-depth review, try the <a href="https://barba.js.org/docs/getstarted/intro/">docs</a>.
-          This guide will give you a practical understanding of how to implement <b>barba.js</b> for page transitions
-          for your next project.
+          Hooks are the lifycycle events for a transition. One way to think about them is to use an analogy
+          with <b>CSS Animation Keyframes</b>. You can set keyframes at varying points in time using percentages,
+          then set css rules within each keyframe.
+        </p>
+      </section>
+
+      <section class="index__section">
+        <pre>
+          <code class="language-css">
+            @keyframes enter {
+              0% { top: 0; left: 0; }
+              30% { top: 50px; }
+              68%, 72% { left: 50px; }
+              100% { top: 100px; left: 100%; }
+            }
+          </code>
+        </pre>
+      </section>
+
+      <section class="index__section">
+        <p>
+          A page enters and leaves upon clicking a new link, Barba uses the concepts of <b>enter</b> and <b>leave</b>
+          within it's lifecycle to allow us to attach transitions at each step. Barba doesn't do the actual animation itself,
+          it turns our website into a single page app like experience with the above hooks where we write our animation code.
+          It gives us the keyframe positions on the left which we fill with our animation code on the right.
+        </p>
+      </section>
+
+      <section class="index__section">
+        <pre>
+          <code class="language-css">
+            @keyframes enter {
+              before { gsap.to({top: 0; left: 0;}) }
+              beforeEnter { gsap.to({top: 50}) }
+              enter { gsap.to({left: 50})}
+              afterEnter { gsap.to({left: 50}) }
+              beforeLeave { gsap.to({top: 100; left: '100%'}) }
+              leave { gsap.to({left: -50;}) }
+              afterLeave { gsap.to({top: -100; left: '-100%'}) }
+              after { gsap.to({opacity: 0}) }
+            }
+          </code>
+        </pre>
+      </section>
+
+      <section class="index__section">
+        <p>
+          Yes, that is a really bad code analogy, but it might help to see how hooks work.
         </p>
       </section>
 
 
       <section class="index__section">
-        <h2>Using Animations</h2>
+        <h3>Once</h3>
         <p>
-          Before learning how to setup and use animations in your code, take a step back and consider
-          <a href="https://uxdesign.cc/motion-in-ux-design-9-points-to-get-started-e891974dc7ee">when and where to implement them</a>.
-          Think about how <a href="https://uxdesign.cc/the-ultimate-guide-to-proper-use-of-animation-in-ux-10bd98614fa9">they interplay with UX</a>.
-          Imagine all the possibilities of how they can <a href="https://medium.com/google-design/motion-design-doesnt-have-to-be-hard-33089196e6c2">fit into your interface designs</a>
-          and <a href="https://uxdesign.cc/good-to-great-ui-animation-tips-7850805c12e5">create eye-catching microinteractions</a>.
+          When a user visits your site, they have just arrived and haven't started clicking on pages
+          to see the transitions just yet. You would like some animations to occur when they arrive,
+          <b>once</b> is the place to put them. Think of it as a <b>siteEnter</b> hook.
+          Hit <b>reload</b> in your browser and see this in action. Go to any page and then click <b>reload</b>
+          to see this action.
         </p>
         <p>
-          This is a self-learning project to better understand how to use page transitions in real life projects.
-          I hope you like it.
+          If you wrote this in your <b>styles.css</b>, it wouldn't work with Barba's hooks.
         </p>
-      </section>
-
-      <section class="index__section">
-        <h2>Tools</h2>
-        <p>
-          This guide will use <a href="https://greensock.com/">GSAP</a> also known as <b>Greensock</b> for doing the animations.
-          You can also use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">CSS Animations</a>.
-          Look at the <a href="/resources.html">resources</a> for more information and learning materials.
-        </p>
-      </section>
-
-      <section class="index__section">
-        <h2>How to Use</h2>
-        <p>
-          This guide is arranged with git branches, because that is how I put this together.
-          You will need to understand how to <a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout">checkout git branches</a>.
-          As you checkout each branch you can see the code in your editor to follow along.
-          Run <b>npm run server</b> to start up a local dev server in your browser.
-          Make changes to the code, save the file and see the changes in your browser!
-        </p>
-        <ol>
-          <li>
-            Dowload or Clone from <a href="https://github.com/telagraphic/page-transitions">repo</a>.
-          </li>
-          <li>
-            Run <b>npm install</b> in your terminal to install dependencies.
-          </li>
-          <li>
-            Run <b>npm run server</b> to start a local dev server.
-          </li>
-        </ol>
       </section>
 
       <section class="index__section">
@@ -171,6 +188,7 @@
   </footer>
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
 <script src="js/barba.core.js"></script>
 <script src="js/barba.css.js"></script>
 <script src="js/barba.prefetch.js"></script>
