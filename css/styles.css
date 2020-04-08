@@ -362,7 +362,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  align-items: baseline;
+  align-items: center;
   padding: 1rem 0;
   background: #6272a4; }
   .header .github-button-section {
@@ -382,6 +382,8 @@ nav {
       text-decoration: none;
       color: #ff93d1; }
   nav .github-button-link {
+    display: flex;
+    align-items: center;
     padding: 0 0 0 1rem; }
 
 main {
@@ -450,27 +452,27 @@ main {
   .about__description {
     font-size: 1.5rem; }
 
-.links {
+.resources {
   display: flex;
   flex-direction: column;
   width: 60vw; }
-  .links p {
+  .resources p {
     font-size: 2rem; }
-  .links a {
+  .resources a {
     text-decoration: underline;
     color: #cfcfc2;
     transition: color .25s ease-in-out; }
-    .links a:hover, .links a:focus {
+    .resources a:hover, .resources a:focus {
       color: #f7a349; }
-  .links__section {
+  .resources__section {
     display: grid;
     grid-template-areas: "header" "content";
     grid-template-rows: 10vh 90vh;
     font-size: 2rem;
     height: 100vh; }
-    .links__section ul {
+    .resources__section ul {
       list-style-type: disc; }
-    .links__section li {
+    .resources__section li {
       padding: .5rem; }
 
 .gallery {

@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  align-items: baseline;
+  align-items: center;
 
   padding: 1rem 0;
 
@@ -39,6 +39,9 @@ nav {
   }
 
   .github-button-link {
+    display: flex;
+    align-items: center;
+
     padding: 0 0 0 1rem;
   }
 
