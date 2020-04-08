@@ -365,7 +365,7 @@ body {
   align-items: baseline;
   padding: 1rem 0;
   background: #6272a4; }
-  .header h2 {
+  .header .github-button-section {
     padding: 0 0 0 20vw; }
 
 nav {
@@ -381,6 +381,8 @@ nav {
     nav a:hover, nav a:focus {
       text-decoration: none;
       color: #ff93d1; }
+  nav .github-button-link {
+    padding: 0 0 0 1rem; }
 
 main {
   grid-area: main;
@@ -407,34 +409,38 @@ main {
   grid-area: footer;
   padding: 1rem;
   background: #6272a4; }
-  .footer__button {
+  .footer__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 0 0 20vw;
     width: 60vw; }
+  .footer a {
+    display: inline;
+    color: #bd93f9;
+    text-decoration: none;
+    transition: color .25s ease-in-out; }
+    .footer a:hover, .footer a:focus {
+      text-decoration: underline;
+      color: #c9a6fa; }
 
 .index {
   display: flex;
   flex-direction: column;
   width: 60vw; }
-  .index__intro p {
+  .index__section p {
     font-size: 2rem; }
-  .index a {
-    color: #cfcfc2; }
-    .index a:hover, .index a:focus {
-      color: #ffb86c; }
-  .index__toc {
-    padding: 1.5rem 0 .5rem 0;
-    font-size: 2rem;
-    padding: 1.5rem 0 .5rem 0;
+  .index__section a {
+    color: #f8f8f0;
+    transition: color .25s ease-in-out; }
+    .index__section a:hover, .index__section a:focus {
+      color: #8be9fd; }
+  .index__section b {
+    color: #bd93f9; }
+  .index__section ol {
     font-size: 2rem; }
-    .index__toc p {
+    .index__section ol li {
       font-size: 2rem; }
-    .index__toc ul {
-      list-style-type: disc; }
-    .index__toc li {
-      padding: .5rem; }
 
 .about {
   display: flex;

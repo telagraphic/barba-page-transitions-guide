@@ -6,13 +6,31 @@
 
   background: $blue;
 
-  &__button {
+  &__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     padding: 0 0 0 20vw;
 
-    width: $article-width;
+    width: $article-width;    
+  }
+
+  p {
+
+  }
+
+  a {
+    display: inline;
+    color: $purple;
+    text-decoration: none;
+
+    transition: color .25s ease-in-out;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      color: lighten($purple, 4%);
+    }
   }
 }

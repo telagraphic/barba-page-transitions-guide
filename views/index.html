@@ -52,33 +52,14 @@
       font-display: swap;
       font-weight: 900;
     }
-
-    @font-face {
-      font-family: "JBMono";
-      src: url('fonts/JetBrainsMono-Regular.woff2') format('woff2'), url('fonts/JetBrainsMono-Regular.woff') format('woff');
-      font-display: swap;
-      font-weight: 500;
-    }
-
-    @font-face {
-      font-family: "JBMono";
-      src: url('fonts/JetBrainsMono-Medium.woff2') format('woff2'), url('fonts/JetBrainsMono-Medium.woff') format('woff');
-      font-display: swap;
-      font-weight: 600;
-    }
-
-    @font-face {
-      font-family: "JBMono";
-      src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2'), url('fonts/JetBrainsMono-Bold.woff') format('woff');
-      font-display: swap;
-      font-weight: 700;
-    }
   </style>
 </head>
 
 <body data-barba="wrapper">
   <header class="header">
-    <h2 class="header__title">Intro</h2>
+    <section class="github-button-section">
+      <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
+    </section>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -94,23 +75,19 @@
       <header>
         <h1>Barba.js Page Transitions 101</h1>
       </header>
-      <section class="index__hero">
-        <img src="../img/lifecycle-diagram.png" alt="">
-      </section>
 
-      <section class="index__intro">
+      <section class="index__section">
         <p>
-          This is a project to explore and experiment with how barba.js works. There are many examples
-          of how to use this page transition library. Each git branch has a different transition style with slightly different page layout styles.
-        </p>
-        <p>
-          This is a self-learning project to better understand how to use page transitions in real life projects.
-          I hope you like it.
+          This is a project to explore and experiment with how <a href="https://barba.js.org/">barba.js</a> works.
+          This is a high concept overview to get you started, it's the result of my own learning.
+          If you want a full in-depth review, try the <a href="https://barba.js.org/docs/getstarted/intro/">docs</a>.
+          This guide will give you a practical understanding of how to implement <b>barba.js</b> for page transitions
+          for your next project.
         </p>
       </section>
 
 
-      <section class="index__intro">
+      <section class="index__section">
         <h2>Animations</h2>
         <p>
           Before learning how to setup and use animations in your code, take a step back and consider
@@ -125,17 +102,48 @@
         </p>
       </section>
 
-      <section class="index__toc">
+      <section class="index__section">
+        <h2>How to Use</h2>
+        <p>
+          This guide is arranged with git branches, because that is how I put this together.
+          You will need to understand how to <a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout">checkout git branches</a>.
+          As you checkout each branch you can see the code in your editor to follow along.
+          Run <b>npm run server</b> to start up a local dev server in your browser.
+          Make changes to the code, save the file and see the changes in your browser!
+        </p>
+        <ol>
+          <li>
+            Dowload or Clone from <a href="https://github.com/telagraphic/page-transitions">repo</a>.
+          </li>
+          <li>
+            Run <b>npm install</b> in your terminal to install dependencies.
+          </li>
+          <li>
+            Run <b>npm run server</b> to start a local dev server.
+          </li>
+        </ol>
+      </section>
+
+      <section class="index__section">
         <h2>Table of Contents</h2>
         <ol>
           <li>
             <b>Setup</b>: Setup with Barba and GSAP
           </li>
           <li>
-            <b>Hooks & Namespaces</b>: Using Hooks and Namespaces
+            <b>Hooks</b>: How They Work
+          </li>
+          <li>
+            <b>Namespaces</b>: Add Customization To A Page
+          </li>
+          <li>
+            <b>Rules</b>: Transitions For Different Pages
           </li>
           <li>
             <b>Sync Mode</b>: How To Use Sync Mode
+          </li>
+          <li>
+            <b>Rules</b>: Transitions For Different Pages
           </li>
           <li>
             <b>Interstitials</b>: Those Animations That Happen Between A Transition
@@ -144,17 +152,15 @@
 
       </section>
 
-      <section class="interstitial">
-        <h1>Interstitial</h1>
-      </section>
-
     </article>
 
 
   </main>
   <footer class="footer">
-    <section class="footer__button">
-      <!-- <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a> -->
+    <section class="footer__section">
+      <p>
+        Made with the <a href="https://github.com/dracula/dracula-theme/">Dracula Theme</a>
+      </p>
     </section>
   </footer>
 </body>

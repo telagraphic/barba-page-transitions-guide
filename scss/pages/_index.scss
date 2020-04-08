@@ -5,42 +5,32 @@
   flex-direction: column;
   width: $article-width;
 
-  &__hero {
 
-  }
-
-  &__intro {
-
-    p {
-      font-size: 2rem;
-    }
-  }
-
-  a {
-    color: $sandstone;
-
-    &:hover,
-    &:focus {
-      color: $orange;
-    }
-  }
-
-  &__toc {
-    padding: 1.5rem 0 .5rem 0;
-    font-size: 2rem;
+  &__section {
 
     p {
       font-size: 2rem;
     }
 
-    padding: 1.5rem 0 .5rem 0;
-    font-size: 2rem;
+    a {
+      color: $lace;
+      transition: color .25s ease-in-out;
 
-    ul {
-      list-style-type: disc;
+      &:hover,
+      &:focus {
+        color: $cyan;
+      }
     }
-    li {
-      padding: .5rem;
+
+    b {
+      color: $purple;
+    }
+
+    ol {
+      font-size: 2rem;
+      li {
+        font-size: 2rem;
+      }
     }
   }
 }

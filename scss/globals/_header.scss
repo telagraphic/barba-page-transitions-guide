@@ -11,7 +11,7 @@
 
   background: $blue;
 
-  h2 {
+  .github-button-section {
     padding: 0 0 0 20vw;
   }
 
@@ -36,6 +36,10 @@ nav {
       text-decoration: none;
       color: lighten($pink, 5%);
     }
+  }
+
+  .github-button-link {
+    padding: 0 0 0 1rem;
   }
 
 }
