@@ -306,6 +306,8 @@ template {
 body {
   color: #161616;
   line-height: 3rem;
+  font-family: "Inter";
+  font-weight: 500;
   color: #f8f8f0; }
 
 h1,
@@ -341,18 +343,6 @@ ul {
     padding: 0;
     margin: 0; }
 
-a {
-  text-decoration: none;
-  color: black; }
-  a:hover, a:focus {
-    text-decoration: underline; }
-
-a {
-  text-decoration: underline;
-  color: #ffb86c; }
-  a:hover, a:focus {
-    color: #f7a349; }
-
 html {
   width: 100%;
   height: 100%; }
@@ -363,8 +353,6 @@ body {
   grid-template-areas: "header" "main" "footer";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
-  font-family: "Inter";
-  font-weight: 500;
   background: #f8f8f2;
   background: #282a36;
   background: #383a59; }
@@ -390,7 +378,7 @@ nav {
     padding: 0 .5rem 0 0;
     text-decoration: none;
     color: #ff79c6; }
-    nav a:hover {
+    nav a:hover, nav a:focus {
       text-decoration: none;
       color: #ff93d1; }
 
@@ -402,6 +390,18 @@ main {
 
 .page header {
   padding: 1rem 0; }
+
+.main-green {
+  background: #82fba0; }
+
+.main-pink {
+  background: #ff46b0; }
+
+.main-red {
+  background: #ff5555; }
+
+.main-cyan {
+  background: #8be9fd; }
 
 .footer {
   grid-area: footer;
@@ -420,6 +420,10 @@ main {
   width: 60vw; }
   .index__intro p {
     font-size: 2rem; }
+  .index a {
+    color: #cfcfc2; }
+    .index a:hover, .index a:focus {
+      color: #ffb86c; }
   .index__toc {
     padding: 1.5rem 0 .5rem 0;
     font-size: 2rem;
@@ -446,9 +450,18 @@ main {
   width: 60vw; }
   .links p {
     font-size: 2rem; }
+  .links a {
+    text-decoration: underline;
+    color: #cfcfc2;
+    transition: color .25s ease-in-out; }
+    .links a:hover, .links a:focus {
+      color: #f7a349; }
   .links__section {
-    padding: 1.5rem 0 .5rem 0;
-    font-size: 2rem; }
+    display: grid;
+    grid-template-areas: "header" "content";
+    grid-template-rows: 10vh 90vh;
+    font-size: 2rem;
+    height: 100vh; }
     .links__section ul {
       list-style-type: disc; }
     .links__section li {
@@ -478,7 +491,8 @@ main {
 
 .post {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  opacity: 0; }
   .post__title {
     color: #66d9ef;
     transition: color .5s ease; }
@@ -486,3 +500,18 @@ main {
       color: #ba8ef9; }
   .post__desc {
     font-size: 1.5rem; }
+
+.interstitial {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #50fa7b;
+  transform: translate(0, 100%); }
+  .interstitial h1 {
+    color: #bd93f9;
+    z-index: 100; }
