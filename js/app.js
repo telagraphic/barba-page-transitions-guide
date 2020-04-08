@@ -1,3 +1,14 @@
+const body = document.querySelector('body');
+
+const interstitial = document.createElement('section');
+interstitial.classList.add('interstitial');
+
+const interstitialHeader = document.createElement('h1');
+interstitialHeader.innerText = 'Interstitial';
+interstitial.appendChild(interstitialHeader);
+
+body.appendChild(interstitial);
+
 barba.init({
   transitions: [{
     name: 'fade',
@@ -31,6 +42,21 @@ barba.init({
           .from(current.container, {opacity: 1}, 0)
           .to(current.container, {opacity: 0, duration: .5}, 0)
           .to('.header__title', {y: -100, ease: 'sine'}, 0)
+      })
+    },
+    beforeEnter({current, next, trigger}) {
+      return new Promise(resolve => {
+
+        const timeline = gsap.timeline({
+          onComplete() {
+            resolve();
+          }
+        })
+
+        timeline
+          .to('.interstitial', {y: 0, duration: .25})
+          .to('.interstitial', {y: '100%', delay: .5});
+
       })
     },
     enter({current, next, trigger}) {
