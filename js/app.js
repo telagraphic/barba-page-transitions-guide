@@ -57,7 +57,8 @@ barba.init({
       to: {
         namespace: ['index']
       },
-      beforeLeave({current, next, trigger}) {
+      before({current, next, trigger}) {
+        console.log('before');
 
         let hooksHeader = document.querySelector('.hooks__header');
         hooksHeader.textContent = 'before';
@@ -67,7 +68,82 @@ barba.init({
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      beforeEnter({current, next, trigger}) {
+        console.log('before entering');
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'before entering';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      enter({current, next, trigger}) {
+        console.log('entering');
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'entering';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      afterEnter({current, next, trigger}) {
+        console.log('after entering');
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'after entering';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      beforeLeave({current, next, trigger}) {
+        console.log('before leaving');
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'before leaving';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
             }
           })
 
@@ -77,9 +153,46 @@ barba.init({
         })
       },
       leave({current, next, trigger}) {
+        console.log('leaving');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'leave';
+        hooksHeader.textContent = 'leaving';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      afterLeave({current, next, trigger}) {
+        console.log('after leaving');
+
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'after leaving';
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+              // current.container.remove();
+            }
+          })
+
+          timeline
+            .set(hooksHeader, {opacity: 0})
+            .to(hooksHeader, {opacity: 1, duration: 1});
+        })
+      },
+      after({current, next, trigger}) {
+        console.log('after');
 
         return new Promise(resolve => {
 
@@ -89,10 +202,6 @@ barba.init({
               current.container.remove();
             }
           })
-
-          timeline
-            .set(hooksHeader, {opacity: 0})
-            .to(hooksHeader, {opacity: 1, duration: 1});
         })
       }
     }
