@@ -343,10 +343,6 @@ ul {
     padding: 0;
     margin: 0; }
 
-pre[class*="language-"] {
-  margin: 0;
-  padding: 0; }
-
 html {
   width: 100%;
   height: 100%; }
@@ -445,70 +441,18 @@ main {
     .index__section b {
       color: #bd93f9; }
 
-.about {
-  display: flex;
-  flex-direction: column;
-  width: 60vw;
-  font-size: 2rem; }
-  .about__description {
-    font-size: 1.5rem; }
-
-.resources {
+.hooks {
   display: flex;
   flex-direction: column;
   width: 60vw; }
-  .resources p {
+  .hooks p {
     font-size: 2rem; }
-  .resources a {
+  .hooks a {
     text-decoration: underline;
     color: #cfcfc2;
     transition: color .25s ease-in-out; }
-    .resources a:hover, .resources a:focus {
+    .hooks a:hover, .hooks a:focus {
       color: #f7a349; }
-  .resources__section {
-    display: grid;
-    grid-template-areas: "header" "content";
-    grid-template-rows: 10vh 90vh;
-    font-size: 2rem;
-    height: 100vh; }
-    .resources__section ul {
-      list-style-type: disc; }
-    .resources__section li {
-      padding: .5rem; }
-
-.gallery {
-  display: flex;
-  flex-direction: column;
-  width: 60vw; }
-  .gallery__photos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); }
-  .gallery__photo {
-    width: 100%; }
-  .gallery__photo-img {
-    max-width: 100%;
-    height: 100%;
-    height: auto; }
-
-.posts {
-  display: flex;
-  width: 60vw; }
-  .posts__list {
-    display: grid;
-    grid-template-rows: auto;
-    grid-row-gap: 2rem; }
-
-.post {
-  display: flex;
-  flex-direction: column;
-  opacity: 0; }
-  .post__title {
-    color: #66d9ef;
-    transition: color .5s ease; }
-    .post__title:hover, .post__title:focus {
-      color: #ba8ef9; }
-  .post__desc {
-    font-size: 1.5rem; }
 
 .interstitial {
   position: fixed;
@@ -524,3 +468,25 @@ main {
   .interstitial h1 {
     color: #bd93f9;
     z-index: 100; }
+
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+  border-radius: 1.125rem;
+  background: #f8f8f0; }
+
+code.language-css {
+  color: #50fa7b; }
+  code.language-css .token.string {
+    color: #50fa7b; }
+  code.language-css .atrule {
+    color: #383a59; }
+  code.language-css .rule {
+    color: #383a59;
+    color: #6272a4; }
+  code.language-css .punctuation {
+    color: #6272a4; }
+  code.language-css .token.selector {
+    color: #282a36; }
+  code.language-css .property {
+    color: #ff5555; }
