@@ -57,7 +57,7 @@
   </style>
 </head>
 
-<body data-barba="wrapper">
+<body>
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
@@ -69,35 +69,35 @@
   </header>
 
 
-  <main data-barba="container" data-barba-namespace="index" data-title="Intro">
-    <article class="index page">
-      <section class="hooks__section">
-        <h1 class="hooks__header">Once</h1>
-      </section>
+  <section data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="index" data-title="Intro">
+      <article class="index page">
+        <section class="hooks__section">
+          <h1 class="hooks__header">Once</h1>
+        </section>
 
-      <section class="index__section">
-        <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
-      </section>
-
-
-      <section class="index__section">
-        <p>
-          When a user visits your site, they have just arrived and haven't started clicking on pages
-          to see the transitions just yet. You would like some animations to occur when they arrive,
-          <b>once</b> is the place to put them. Think of it as a <b>siteEnter</b> hook.
-          Hit <b>reload</b> in your browser and see this in action. Go to any page and then click <b>reload</b>
-          to see this action.
-        </p>
-        <p>
-          If you wrote this in your <b>styles.css</b>, it wouldn't work with Barba's hooks. Hence why there is
-          the <b>once</b> hook.
-        </p>
-      </section>
-
-    </article>
+        <section class="index__section">
+          <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
+        </section>
 
 
-  </main>
+        <section class="index__section">
+          <p>
+            When a user visits your site, they have just arrived and haven't started clicking on pages
+            to see the transitions just yet. You would like some animations to occur when they arrive,
+            <b>once</b> is the place to put them. Think of it as a <b>siteEnter</b> hook.
+            Hit <b>reload</b> in your browser and see this in action. Go to any page and then click <b>reload</b>
+            to see this action.
+          </p>
+          <p>
+            If you wrote this in your <b>styles.css</b>, it wouldn't work with Barba's hooks. Hence why there is
+            the <b>once</b> hook.
+          </p>
+        </section>
+
+      </article>
+    </main>
+  </section>
   <footer class="footer">
     <section class="footer__section">
       <p>

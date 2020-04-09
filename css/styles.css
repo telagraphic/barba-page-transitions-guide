@@ -453,6 +453,16 @@ main {
     transition: color .25s ease-in-out; }
     .hooks a:hover, .hooks a:focus {
       color: #f7a349; }
+  .hooks__section {
+    padding: 1.5rem 0 .5rem 0;
+    font-size: calc(16px + (38 - 16) * ((100vw - 320px) / (3000 - 320))); }
+    .hooks__section a {
+      color: #f8f8f0;
+      transition: color .25s ease-in-out; }
+      .hooks__section a:hover, .hooks__section a:focus {
+        color: #8be9fd; }
+    .hooks__section b {
+      color: #bd93f9; }
 
 .interstitial {
   position: fixed;
