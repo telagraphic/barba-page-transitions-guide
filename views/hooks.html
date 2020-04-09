@@ -6,9 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Barba.js Page Transitions</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
   <link rel="stylesheet" href="css/styles.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
 
   <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -62,17 +64,22 @@
     </nav>
   </header>
 
-  <main data-barba="container" data-barba-namespace="hooks" data-title="hooks">
-    <article class=" page">
+  <section data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="hooks" data-title="hooks">
+      <article class="hooks page">
 
-      <section class="hooks__section">
-        <h1 class="hooks__header">Before</h1>
-      </section>
+        <section class="hooks__section">
+          <h1 class="hooks__header">Before</h1>
+        </section>
 
-    </article>
+        <section class="hooks__section">
+          <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
+        </section>
 
+      </article>
+    </main>
+  </section>
 
-  </main>
   <footer class="footer">
     <section class="footer__section">
       <p>
@@ -81,6 +88,7 @@
     </section>
   </footer>
 </body>
+
 
 <script src="js/barba.core.js"></script>
 <script src="js/barba.css.js"></script>

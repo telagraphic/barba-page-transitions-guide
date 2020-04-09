@@ -11,6 +11,7 @@
 
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
 
   <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -57,7 +58,7 @@
   </style>
 </head>
 
-<body data-barba="wrapper">
+<body>
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
@@ -69,116 +70,76 @@
   </header>
 
 
-  <main data-barba="container" data-barba-namespace="index" data-title="Intro">
-    <article class="index page">
-      <header>
-        <h1>Hooks</h1>
-      </header>
+  <section data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="index" data-title="Intro">
+      <article class="index page">
+        <section class="hooks__section">
+          <h1 class="hooks__header">Hooks</h1>
+        </section>
 
-      <section class="index__section">
-        <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
-      </section>
+        <section class="index__section">
+          <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
+        </section>
 
-      <section class="index__section">
-        <p>
-          Hooks are the lifycycle events for a transition. One way to think about them is to use an analogy
-          with <b>CSS Animation Keyframes</b>. You can set keyframes at varying points in time using percentages,
-          then set css rules within each keyframe.
-        </p>
-      </section>
+        <section class="index__section">
+          <p>
+            Hooks are the lifecycle events for a transition. One way to think about them is to use an analogy
+            with <b>CSS Animation Keyframes</b>. You can set keyframes at varying points in time using percentages,
+            then set css rules within each keyframe.
+          </p>
+        </section>
 
-      <section class="index__section">
-        <pre>
-          <code class="language-css">
-            @keyframes enter {
-              0% { top: 0; left: 0; }
-              30% { top: 50px; }
-              68%, 72% { left: 50px; }
-              100% { top: 100px; left: 100%; }
-            }
-          </code>
-        </pre>
-      </section>
+        <section class="index__section">
+          <pre>
+            <code class="language-css">
+              @keyframes enter {
+                0% { top: 0; left: 0; }
+                30% { top: 50px; }
+                68%, 72% { left: 50px; }
+                100% { top: 100px; left: 100%; }
+              }
+            </code>
+          </pre>
+        </section>
 
-      <section class="index__section">
-        <p>
-          A page enters and leaves upon clicking a new link, Barba uses the concepts of <b>enter</b> and <b>leave</b>
-          within it's lifecycle to allow us to attach transitions at each step. Barba doesn't do the actual animation itself,
-          it turns our website into a single page app like experience with the above hooks where we write our animation code.
-          It gives us the keyframe positions on the left which we fill with our animation code on the right.
-        </p>
-      </section>
+        <section class="index__section">
+          <p>
+            A page enters and leaves upon clicking a new link, Barba uses the concepts of <b>enter</b> and <b>leave</b>
+            within it's lifecycle to allow us to attach transitions at each step. Barba doesn't do the actual animation itself,
+            it turns our website into a single page app like experience with the above hooks where we write our animation code.
+            It gives us the keyframe positions on the left which we fill with our animation code on the right.
+          </p>
+        </section>
 
-      <section class="index__section">
-        <pre>
-          <code class="language-css">
-            @keyframes enter {
-              before { gsap.to({top: 0; left: 0;}) }
-              beforeEnter { gsap.to({top: 50}) }
-              enter { gsap.to({left: 50})}
-              afterEnter { gsap.to({left: 50}) }
-              beforeLeave { gsap.to({top: 100; left: '100%'}) }
-              leave { gsap.to({left: -50;}) }
-              afterLeave { gsap.to({top: -100; left: '-100%'}) }
-              after { gsap.to({opacity: 0}) }
-            }
-          </code>
-        </pre>
-      </section>
+        <section class="index__section">
+          <pre>
+            <code class="language-css">
+              @keyframes enter {
+                before { gsap.to({top: 0; left: 0;}) }
+                beforeEnter { gsap.to({top: 50}) }
+                enter { gsap.to({left: 50})}
+                afterEnter { gsap.to({left: 50}) }
+                beforeLeave { gsap.to({top: 100; left: '100%'}) }
+                leave { gsap.to({left: -50;}) }
+                afterLeave { gsap.to({top: -100; left: '-100%'}) }
+                after { gsap.to({opacity: 0}) }
+              }
+            </code>
+          </pre>
+        </section>
 
-      <section class="index__section">
-        <p>
-          Yes, that is a really bad code analogy, but it might help to see how hooks work.
-        </p>
-      </section>
-
-
-      <section class="index__section">
-        <h3>Once</h3>
-        <p>
-          When a user visits your site, they have just arrived and haven't started clicking on pages
-          to see the transitions just yet. You would like some animations to occur when they arrive,
-          <b>once</b> is the place to put them. Think of it as a <b>siteEnter</b> hook.
-          Hit <b>reload</b> in your browser and see this in action. Go to any page and then click <b>reload</b>
-          to see this action.
-        </p>
-        <p>
-          If you wrote this in your <b>styles.css</b>, it wouldn't work with Barba's hooks.
-        </p>
-      </section>
-
-      <section class="index__section">
-        <h2>Table of Contents</h2>
-        <ol>
-          <li>
-            <b>Master</b>: Setup with Barba and GSAP
-          </li>
-          <li>
-            <b>Hooks</b>: How They Work
-          </li>
-          <li>
-            <b>Namespaces</b>: Add Customization To A Page
-          </li>
-          <li>
-            <b>Rules</b>: Transitions For Different Pages
-          </li>
-          <li>
-            <b>Sync Mode</b>: How To Use Sync Mode
-          </li>
-          <li>
-            <b>Rules</b>: Transitions For Different Pages
-          </li>
-          <li>
-            <b>Interstitials</b>: Animations Between Transitions
-          </li>
-        </ol>
-
-      </section>
-
-    </article>
-
-
-  </main>
+        <section class="index__section">
+          <p>
+            Yes, that is a really bad code analogy, but it might help to see how hooks work.
+          </p>
+          <p>
+            Open your <b>Dev Tools</b> and look at the console tab when switching between the page.
+            The code has all 8 hooks and you can see when each is triggered.
+          </p>
+        </section>
+      </article>
+    </main>
+  </section>
   <footer class="footer">
     <section class="footer__section">
       <p>
@@ -186,14 +147,13 @@
       </p>
     </section>
   </footer>
-</body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
-<script src="js/barba.core.js"></script>
-<script src="js/barba.css.js"></script>
-<script src="js/barba.prefetch.js"></script>
-<script src="js/barba.router.js"></script>
-<script src="js/gsap.min.js"></script>
-<script src="js/app.js"></script>
+  <script src="js/barba.core.js"></script>
+  <script src="js/barba.css.js"></script>
+  <script src="js/barba.prefetch.js"></script>
+  <script src="js/barba.router.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
 
 </html>

@@ -1,62 +1,7 @@
 barba.init({
   transitions: [
     {
-      name: 'fade',
-      once({current, next, trigger}) {
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          timeline
-            .set('nav a', {opacity: 0, y: '-100%'})
-            .set('.github-button-section', {opacity: 0, y: '-100%'})
-            .set('.page', {opacity: 0, y: 50})
-            .to('nav a', {opacity: 1, stagger: .1, y: '0%', delay: .15}, 0)
-            .to('.github-button-section', {opacity: 1, y: '0%', duration: 1}, 0)
-            .to('.page', {opacity: 1, y: 0}, 0);
-        })
-      },
-      enter({current, next, trigger}) {
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          timeline
-            .from(next.container, {opacity: 0, y: 50})
-            .to(next.container, {opacity: 1, y: 0, ease: 'power4.out', duration: .25});
-        })
-      },
-      leave({current, next, trigger}) {
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-              current.container.remove();
-            }
-          })
-
-          timeline
-            .to(current.container, {opacity: 0, y: 50});
-        })
-      }
-    },
-    {
       name: "hooks",
-      from: {
-        namespace: ['hooks']
-      },
-      to: {
-        namespace: ['index']
-      },
       before({current, next, trigger}) {
         console.log('before');
 
@@ -77,10 +22,14 @@ barba.init({
         })
       },
       beforeEnter({current, next, trigger}) {
-        console.log('before entering');
+        console.log('beforeEnter');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'before entering';
+        hooksHeader.textContent = 'beforeEnter';
+
+        const hiliteScript = document.createElement('script');
+        hiliteScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js');
+        next.container.appendChild(hiliteScript);
 
         return new Promise(resolve => {
 
@@ -96,10 +45,10 @@ barba.init({
         })
       },
       enter({current, next, trigger}) {
-        console.log('entering');
+        console.log('enter');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'entering';
+        hooksHeader.textContent = 'enter';
 
         return new Promise(resolve => {
 
@@ -115,10 +64,10 @@ barba.init({
         })
       },
       afterEnter({current, next, trigger}) {
-        console.log('after entering');
+        console.log('afterEnter');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'after entering';
+        hooksHeader.textContent = 'afterEnter';
 
         return new Promise(resolve => {
 
@@ -134,10 +83,10 @@ barba.init({
         })
       },
       beforeLeave({current, next, trigger}) {
-        console.log('before leaving');
+        console.log('beforeLeave');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'before leaving';
+        hooksHeader.textContent = 'beforeLeave';
 
         return new Promise(resolve => {
 
@@ -153,10 +102,10 @@ barba.init({
         })
       },
       leave({current, next, trigger}) {
-        console.log('leaving');
+        console.log('leave');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'leaving';
+        hooksHeader.textContent = 'leave';
 
         return new Promise(resolve => {
 
@@ -172,17 +121,17 @@ barba.init({
         })
       },
       afterLeave({current, next, trigger}) {
-        console.log('after leaving');
+        console.log('afterLeave');
 
         let hooksHeader = document.querySelector('.hooks__header');
-        hooksHeader.textContent = 'after leaving';
+        hooksHeader.textContent = 'afterLeave';
 
         return new Promise(resolve => {
 
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              // current.container.remove();
+              current.container.remove();
             }
           })
 
@@ -194,12 +143,14 @@ barba.init({
       after({current, next, trigger}) {
         console.log('after');
 
+        let hooksHeader = document.querySelector('.hooks__header');
+        hooksHeader.textContent = 'after';
+
         return new Promise(resolve => {
 
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
             }
           })
         })
@@ -208,3 +159,10 @@ barba.init({
   ],
   debug: true
 })
+
+// barba.hooks.beforeEnter( ( data ) => {
+//   const body = document.querySelector('body');
+//
+//   body.appendChild(hiliteScript);
+//
+// });
