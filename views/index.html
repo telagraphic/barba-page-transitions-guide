@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Barba.js Page Transitions</title>
+  <title>Hooks - Flickering</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
   <link rel="stylesheet" href="css/styles.css">
@@ -65,7 +65,7 @@
     </section>
     <nav>
       <a href="index.html">Home</a>
-      <a href="hooks.html">Hooks</a>
+      <a href="hooks.html">Flicker</a>
     </nav>
   </header>
 
@@ -74,22 +74,20 @@
     <main data-barba="container" data-barba-namespace="index" data-title="Intro">
       <article class="index page">
         <section class="hooks__section">
-          <h1 class="hooks__header">Hooks</h1>
+          <h1 class="hooks__header">Page Flickering</h1>
         </section>
 
         <section class="index__section">
           <p>
-            <b>Barba.js</b> uses <b>pushState</b> to change the URL programmatically while performing an
-            <b>AJAX</b> request to get the next page. Barba hooks allow us to provide the animations for
-            the page <b>leave</b> and <b>enter</b> making it look seamless, once we figure out how the hell it works.
-            The docs from v.1 explain <a href="https://barba.js.org/v1/how-it-works.html">how the library works</a>.
-            The author <b>Luigi De Rosa</b> wrote up an <a href="https://www.smashingmagazine.com/2016/07/improving-user-flow-through-page-transitions/">article about page transitions</a>
-            that might be helpful to see the code stuff behind the scenes.
+            Click on the nav links to see this unwanted flickering effect.
           </p>
-
           <p>
-            In short, <b>Barba.js</b> turns your website into a single page app like experience. It's not just a drop-in
-            library that creates cool transition effects, it's take some effort to get it working right.
+            Sometimes when setting up your hooks, you'll see content flickering on the page and it's super annoying.
+            You want to fade in the page when it is entering and you have set up a <b>beforeEnter</b> and <b>enter</b> hook.
+            You have written some GSAP animation code in the <b>enter</b> hook to fade in the new page but you see
+            the new content flicker then hide and then do your fade.
+            The <b>beforeEnter</b> hook is displaying the new page, then the <b>enter</b> hook animation is being run.
+            The <b>data.next.container</b> is loaded on the DOM before the <b>beforeEnter</b> hook as shown below.
           </p>
         </section>
 
@@ -99,60 +97,22 @@
 
         <section class="index__section">
           <p>
-            Hooks are the lifecycle events for a transition. One way to think about them is to use an analogy
-            with <b>CSS Animation Keyframes</b>. You can set keyframes at varying points in time using percentages,
-            then set css rules within each keyframe.
-          </p>
-        </section>
-
-        <section class="index__section">
-          <pre>
-            <code class="language-css">
-              @keyframes enter {
-                0% { top: 0; left: 0; }
-                30% { top: 50px; }
-                68%, 72% { left: 50px; }
-                100% { top: 100px; left: 100%; }
-              }
-            </code>
-          </pre>
-        </section>
-
-        <section class="index__section">
-          <p>
-            A page enters and leaves upon clicking a new link, Barba uses the concepts of <b>enter</b> and <b>leave</b>
-            within it's lifecycle to allow us to attach transitions at each step. Barba doesn't do the actual animation itself,
-            it turns our website into a single page app like experience with the above hooks where we write our animation code.
-            It gives us the keyframe positions on the left which we fill with our animation code on the right.
-          </p>
-        </section>
-
-        <section class="index__section">
-          <pre>
-            <code class="language-css">
-              @keyframes enter {
-                before { gsap.to({top: 0; left: 0;}) }
-                beforeEnter { gsap.to({top: 50}) }
-                enter { gsap.to({left: 50})}
-                afterEnter { gsap.to({left: 50}) }
-                beforeLeave { gsap.to({top: 100; left: '100%'}) }
-                leave { gsap.to({left: -50;}) }
-                afterLeave { gsap.to({top: -100; left: '-100%'}) }
-                after { gsap.to({opacity: 0}) }
-              }
-            </code>
-          </pre>
-        </section>
-
-        <section class="index__section">
-          <p>
-            Yes, that is a really bad code analogy, but it might help to see how hooks work.
+            Of course, you could set the page opacity to 0 in your styles but you may have forgetten this during
+            your intial site coding.
           </p>
           <p>
-            Open your <b>Dev Tools</b> and look at the console tab when switching between the page.
-            The code has all 8 hooks and you can see when each is triggered.
+            Uncomment lines 17 & 18 in the <b>beforeEnter</b> hook and commment out line 34 in the <b>enter</b> hook to remove
+            this flickering.
+          </p>
+          <p>
+            The key thing to remember is that the <b>data.next.container</b> is added into the DOM and follow the
+            <a href="https://barba.js.org/docs/userguide/syntax/#Hooks">hook order</a>.
+            <b>beforeEnter</b> will show page contents before your animation code runs in the <b>enter</b> hook!
+            This will save headaches!
           </p>
         </section>
+
+
       </article>
     </main>
   </section>
