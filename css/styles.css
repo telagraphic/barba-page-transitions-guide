@@ -443,6 +443,55 @@ main {
     .index__section b {
       color: #bd93f9; }
 
+.guide {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  scroll-snap-type: y mandatory; }
+  .guide p {
+    font-size: 2rem; }
+  .guide a {
+    text-decoration: underline;
+    color: #cfcfc2;
+    transition: color .25s ease-in-out; }
+    .guide a:hover, .guide a:focus {
+      color: #f7a349; }
+
+.toc {
+  font-size: 2rem; }
+  .toc__chapter {
+    display: grid;
+    grid-template-areas: 'title' 'details';
+    grid-template-columns: max-content;
+    grid-template-rows: 10rem max-content;
+    align-items: center;
+    padding: 4rem 0; }
+    .toc__chapter:nth-last-child(n+2) {
+      border-bottom: solid 0.5rem #cfcfc2; }
+  .toc__chapter-title {
+    grid-area: title;
+    display: grid;
+    grid-template-columns: 10rem max-content; }
+  .toc__chapter-number {
+    font-size: 8rem;
+    font-weight: 100; }
+  .toc__chapter-name {
+    padding: 0 0 0 2rem;
+    font-size: 8rem;
+    font-weight: 300; }
+  .toc__chapter-sections {
+    grid-area: details;
+    display: grid;
+    grid-template-rows: 4rem;
+    padding: 2rem 0; }
+  .toc__chapter-sections-item-section em {
+    font-weight: 500;
+    font-style: normal; }
+  .toc__chapter-sections-item-details p {
+    padding: 0;
+    margin: 0;
+    font-weight: 300; }
+
 .resources {
   display: flex;
   flex-direction: column;
@@ -464,31 +513,6 @@ main {
     .resources__section ul {
       list-style-type: disc; }
     .resources__section li {
-      padding: .5rem; }
-
-.links {
-  display: flex;
-  flex-direction: column;
-  width: 60vw;
-  scroll-snap-type: y mandatory; }
-  .links p {
-    font-size: 2rem; }
-  .links a {
-    text-decoration: underline;
-    color: #cfcfc2;
-    transition: color .25s ease-in-out; }
-    .links a:hover, .links a:focus {
-      color: #f7a349; }
-  .links__section {
-    scroll-snap-align: start;
-    display: grid;
-    grid-template-areas: "header" "content";
-    grid-template-rows: 10vh 90vh;
-    font-size: 2rem;
-    height: 100vh; }
-    .links__section ul {
-      list-style-type: disc; }
-    .links__section li {
       padding: .5rem; }
 
 .interstitial {
