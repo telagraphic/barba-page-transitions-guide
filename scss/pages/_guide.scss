@@ -1,0 +1,47 @@
+@import '../config/variables';
+
+.links {
+  display: flex;
+  flex-direction: column;
+  width: $article-width;
+
+  scroll-snap-type: y mandatory;
+
+  p {
+    font-size: 2rem;
+  }
+
+  a {
+    text-decoration: underline;
+
+    color: $sandstone;
+
+    transition: color .25s ease-in-out;
+
+    &:hover,
+    &:focus {
+      color: $deep-orange;
+    }
+  }
+
+
+
+  &__section {
+    scroll-snap-align: start;
+
+    display: grid;
+    grid-template-areas: "header" "content";
+    grid-template-rows: 10vh 90vh;
+
+    font-size: 2rem;
+    height: 100vh;
+
+    ul {
+      list-style-type: disc;
+    }
+    li {
+      padding: .5rem;
+    }
+
+  }
+}
