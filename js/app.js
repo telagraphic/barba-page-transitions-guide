@@ -50,6 +50,58 @@ barba.init({
       }
     },
   ],
+  views: [
+    {
+      namespace: 'guide',
+      afterEnter({current, next, trigger}) {
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .to('.toc__chapter', {opacity: 1, stagger: .5, ease: 'circ'});
+        })
+      },
+      beforeLeave({current, next, trigger}) {
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .set('.toc__chapter', {x: 0, opacity: 1})
+            .to('.toc__chapter', {x: 100, ease: 'sine'}, 0)
+            .to('.toc__chapter', {opacity: 0}, 0);
+        })
+      }
+    },
+    {
+      namespace: 'resources',
+      beforeEnter({current, next, trigger}) {
+        const pageTitleElement = document.querySelector('.resources__header')
+        pageTitleElement.innerText = next.container.getAttribute('data-title');
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .to('.resources__header', {opacity: 1, ease: 'circ'});
+        })
+      }
+    }
+  ],
   debug: true
 })
 

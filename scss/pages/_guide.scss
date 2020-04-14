@@ -38,6 +38,8 @@
 
     padding: 4rem 0;
 
+    opacity: 0;
+
     &:nth-last-child(n+2) {
       border-bottom: solid .5rem $sandstone;
     }

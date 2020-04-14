@@ -465,7 +465,8 @@ main {
     grid-template-columns: max-content;
     grid-template-rows: 10rem max-content;
     align-items: center;
-    padding: 4rem 0; }
+    padding: 4rem 0;
+    opacity: 0; }
     .toc__chapter:nth-last-child(n+2) {
       border-bottom: solid 0.5rem #cfcfc2; }
   .toc__chapter-title {
@@ -504,6 +505,9 @@ main {
     transition: color .25s ease-in-out; }
     .resources a:hover, .resources a:focus {
       color: #f7a349; }
+  .resources__header {
+    font-size: 2rem;
+    color: #50fa7b; }
   .resources__section {
     display: grid;
     grid-template-areas: "header" "content";
