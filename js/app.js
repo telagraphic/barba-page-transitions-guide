@@ -159,10 +159,3 @@ barba.init({
   ],
   debug: true
 })
-
-// barba.hooks.beforeEnter( ( data ) => {
-//   const body = document.querySelector('body');
-//
-//   body.appendChild(hiliteScript);
-//
-// });
