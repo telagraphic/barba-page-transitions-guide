@@ -1,5 +1,9 @@
 @import '../config/variables';
 
+body {
+  overflow-x: hidden;
+}
+
 main {
   grid-area: main;
   display: flex;

@@ -386,6 +386,9 @@ nav {
     align-items: center;
     padding: 0 0 0 1rem; }
 
+body {
+  overflow-x: hidden; }
+
 main {
   grid-area: main;
   display: flex;
