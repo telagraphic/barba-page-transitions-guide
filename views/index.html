@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hooks - Flickering</title>
+  <title>Hooks - Container</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
   <link rel="stylesheet" href="css/styles.css">
@@ -74,42 +74,30 @@
     <main data-barba="container" data-barba-namespace="index" data-title="Intro">
       <article class="index page">
         <section class="hooks__section">
-          <h1 class="hooks__header">Page Flickering</h1>
+          <h1 class="hooks__header">Containers</h1>
         </section>
 
         <section class="index__section">
           <p>
-            Click on the nav links to see this unwanted flickering effect.
+            The <b>container</b> property on the <b>data</b> object holds the html to replace the <b>data-container</b>
+            attribute in the html markup. See the <a href="https://barba.js.org/docs/userguide/syntax/#data-argument">docs for what I'm talking about</a>.
+            It is a best practice to remove the <b>current.container</b> when leaving a page to make way for the <b>next.container</b> on next pages' enter hook.
           </p>
           <p>
-            Sometimes when setting up your hooks, you'll see content flickering on the page and it's super annoying.
-            You want to fade in the page when it is entering and you have set up a <b>beforeEnter</b> and <b>enter</b> hook.
-            You have written some GSAP animation code in the <b>enter</b> hook to fade in the new page but you see
-            the new content flicker then hide and then do your fade.
-            The <b>beforeEnter</b> hook is displaying the new page, then the <b>enter</b> hook animation is being run.
-            The <b>data.next.container</b> is loaded on the DOM before the <b>beforeEnter</b> hook as shown below.
+            Toggle between the two links and you'll see how the transition doesn't work right, it's jolted.
+            Sometimes you'll see overlapping pages that transition at the wrong time depending on your fades.
+            Make sure to <b>current.container.remove()</b> in one of your leave hooks.
+          </p>
+          <p>
+            Uncomment line 24 in <b>app.js</b> to see this working correctly.
+            You'll notice that with this line missing, the <b>inspector</b> tab in your dev tools
+            shows two <b>data-barba="container"</b> in the DOM. Compare this when
+            <b>current.container.remove()</b> is uncommented in the leave hook.
           </p>
         </section>
 
         <section class="index__section">
-          <img src="../img/lifecycle-diagram.png" alt="Barba.js Hooks Lifecycle Diagram">
-        </section>
-
-        <section class="index__section">
-          <p>
-            Of course, you could set the page opacity to 0 in your styles but you may have forgetten this during
-            your intial site coding.
-          </p>
-          <p>
-            Uncomment lines 17 & 18 in the <b>beforeEnter</b> hook and commment out line 34 in the <b>enter</b> hook to remove
-            this flickering.
-          </p>
-          <p>
-            The key thing to remember is that the <b>data.next.container</b> is added into the DOM and follow the
-            <a href="https://barba.js.org/docs/userguide/syntax/#Hooks">hook order</a>.
-            <b>beforeEnter</b> will show page contents before your animation code runs in the <b>enter</b> hook!
-            This will save headaches!
-          </p>
+          <img src="../img/1-hooks-containers.png" alt="Containers in Barba.js">
         </section>
 
 

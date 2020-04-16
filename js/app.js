@@ -1,24 +1,7 @@
 barba.init({
   transitions: [
     {
-      name: "hooks-flicker",
-      beforeEnter({current, next, trigger}) {
-        console.log('beforeEnter');
-
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          // Uncomment to fix flickering
-          // timeline
-          //   .from(next.container, {opacity: 0})
-        })
-
-      },
+      name: "hooks-container",
       enter({current, next, trigger}) {
         console.log('enter');
 
@@ -31,13 +14,9 @@ barba.init({
           })
 
           timeline
-            .set(next.container, {opacity: 0}) // comment out
+            .from(next.container, {opacity: 0})
             .to(next.container, {opacity: 1});
         })
-      },
-      beforeLeave({current, next, trigger}) {
-        console.log('beforeLeave');
-
       },
       leave({current, next, trigger}) {
         console.log('leave');
@@ -47,17 +26,13 @@ barba.init({
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
+              // current.container.remove();
             }
           })
 
           timeline
             .to(current.container, {opacity: 0});
         })
-      },
-      afterLeave({current, next, trigger}) {
-        console.log('afterLeave');
-
       }
     }
   ],
