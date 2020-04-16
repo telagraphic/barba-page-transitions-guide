@@ -36,13 +36,12 @@ barba.init({
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
+              // current.container.remove();
             }
           })
 
           timeline
-            .to(current.container, {opacity: 0, x: 300, duration: .5});
-            // .to(current.container, {opacity: 0, x: 500, ease: 'circ'});
+            .to(current.container, {opacity: 0, duration: .5});
         })
       },
       enter({current, next, trigger}) {
@@ -56,8 +55,7 @@ barba.init({
           })
 
           timeline
-            .from(next.container, {opacity: 0, x: -300, duration: .25})
-            .to(next.container, {opacity: 1, x: 0, ease: 'power4.out'});
+            .to(next.container, {opacity: 1, ease: 'power4.out'});
         })
       }
     },
@@ -76,7 +74,7 @@ barba.init({
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
+              // current.container.remove();
             }
           })
 
@@ -112,7 +110,7 @@ barba.init({
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
+              // current.container.remove();
             }
           })
 
@@ -151,7 +149,7 @@ barba.init({
           const timeline = gsap.timeline({
             onComplete() {
               resolve();
-              current.container.remove();
+              // current.container.remove();
             }
           })
 
