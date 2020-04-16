@@ -41,7 +41,8 @@ barba.init({
           })
 
           timeline
-            .to(current.container, {opacity: 0, x: 500, ease: 'circ'});
+            .to(current.container, {opacity: 0, x: 300, duration: .5});
+            // .to(current.container, {opacity: 0, x: 500, ease: 'circ'});
         })
       },
       enter({current, next, trigger}) {
@@ -55,8 +56,8 @@ barba.init({
           })
 
           timeline
-            .from(next.container, {opacity: 0, x: -500})
-            .to(next.container, {opacity: 1, x: 0, ease: 'circ'});
+            .from(next.container, {opacity: 0, x: -300, duration: .25})
+            .to(next.container, {opacity: 1, x: 0, ease: 'power4.out'});
         })
       }
     },
@@ -80,7 +81,7 @@ barba.init({
           })
 
           timeline
-            .to(current.container, {opacity: 0, x: -500, ease: 'circ'});
+            .to(current.container, {opacity: 0, x: 300, ease: 'circ'});
         })
       },
       enter({current, next, trigger}) {
@@ -94,8 +95,8 @@ barba.init({
           })
 
           timeline
-            .from(next.container, {opacity: 0, x: 500})
-            .to(next.container, {opacity: 1, x: 0, ease: 'circ'});
+            .from(next.container, {opacity: 0, x: -300, ease: "slow( .07, 0.7, false)"})
+            .to(next.container, {opacity: 1, x: 0});
         })
       }
     },
@@ -121,6 +122,45 @@ barba.init({
       },
       enter({current, next, trigger}) {
         console.log('to-guide: enter');
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+            }
+          })
+
+          timeline
+            .from(next.container, {opacity: 0, y: 500})
+            .to(next.container, {opacity: 1, y: 0, ease: 'circ'},'-=.5');
+        })
+      }
+    },
+    {
+      name: 'guide-to-resources',
+      to: {
+          namespace: ['resources']
+      },
+      from: {
+          namespace: ['guide']
+      },
+      leave({current, next, trigger}) {
+        console.log('guide-to-resources: leave');
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+              current.container.remove();
+            }
+          })
+
+          timeline
+            .to(current.container, {opacity: 0, y: 500, ease: 'circ'});
+        })
+      },
+      enter({current, next, trigger}) {
+        console.log('guide-to-resources: enter');
         return new Promise(resolve => {
 
           const timeline = gsap.timeline({
