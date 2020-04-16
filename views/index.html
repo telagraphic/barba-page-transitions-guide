@@ -55,7 +55,7 @@
   </style>
 </head>
 
-<body data-barba="wrapper">
+<body>
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
@@ -68,34 +68,43 @@
   </header>
 
 
-  <main data-barba="container" data-barba-namespace="index" data-title="Intro">
-    <article class="index page">
-      <header>
-        <h1>Animations</h1>
-      </header>
+  <section data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="index" data-title="Intro">
+      <article class="index page">
+        <header>
+          <h1>Animations</h1>
+        </header>
 
-      <section class="index__section">
-        <p>
-          When doing animations that involve x and y coordinate changes, you will get
-          scrollbars during the animation. Click on the navigation to see this in action.
-        </p>
-        <p>
-          To avoid this, uncomment out line 4 in <b>scss/globals/_main.scss</b>.
-          When starting out with animations, you might not know this!
-          <b>overflow-x: hidden</b> will keep the browser from displaying horizontal scrollbars
-          during the animation.
-        </p>
+        <section class="index__section">
+          <p>
+            When doing animations that involve x and y coordinate changes, you will get
+            scrollbars during the animation. Click on the navigation to see this in action.
+          </p>
+          <p>
+            To avoid this, uncomment out line 4 in <b>scss/globals/_main.scss</b>.
+            When starting out with animations, you might not know this!
+            <b>overflow-x: hidden</b> will keep the browser from displaying horizontal scrollbars
+            during the animation.
+          </p>
 
-        <h2>Easings</h2>
-        <p>
-          If using GSAP, check out their <a href="https://greensock.com/ease-visualizer">handy ease visualizer</a>.
-          Look at some of the easings used on transition timelines to give a smoother feel. These are basic boring
-          animations, nothing great. But some easing smooths them out.
-        </p>
-      </section>
-    </article>
+          <h2>Easings</h2>
+          <p>
+            If using GSAP, check out their <a href="https://greensock.com/ease-visualizer">handy ease visualizer</a>.
+            Look at some of the easings used on transition timelines to give a smoother feel. These are basic boring
+            animations, nothing great. But some easing smooths them out.
+          </p>
 
-  </main>
+          <h2>Timeline Position</h2>
+          <p>
+            Try using the <a href="https://greensock.com/docs/v3/GSAP/gsap.timeline()">position parameter</a> to layer your <b>to</b> blocks over each other for
+            even better animations. Timing out the fade before it reaches the end will make
+            animations look less abrupt and blocky.
+          </p>
+        </section>
+      </article>
+    </main>
+  </section>
+
   <footer class="footer">
     <section class="footer__section">
       <p>
