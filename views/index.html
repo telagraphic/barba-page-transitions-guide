@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Barba.js Guide</title>
+  <title>Rules</title>
 
   <link rel="stylesheet" href="css/styles.css">
 
@@ -55,7 +55,7 @@
   </style>
 </head>
 
-<body data-barba="wrapper">
+<body>
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
@@ -67,43 +67,44 @@
     </nav>
   </header>
 
+  <section data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="index" data-title="Intro">
+      <article class="index page">
+        <header>
+          <h1>Rules</h1>
+        </header>
 
-  <main data-barba="container" data-barba-namespace="index" data-title="Intro">
-    <article class="index page">
-      <header>
-        <h1>Rules</h1>
-      </header>
+        <section class="index__section">
+          <p>
+            You can set the rule for a transition to apply to certain pages with a <b>from</b> and <b>to</b>
+            block in your transition. In this example, going from the <b>/index</b> to the <b>/guide</b> page
+            uses a transition. Going from <b>/index</b> to <b>/resources</b> uses a different one.
+            Going to <b>/guide</b> from any other page uses it's own transition.
+          </p>
 
-      <section class="index__section">
-        <p>
-          You can set the rule for a transition to apply to certain pages with a <b>from</b> and <b>to</b>
-          block in your transition. In this example, going from the <b>/index</b> to the <b>/guide</b> page
-          uses a transition. Going from <b>/index</b> to <b>/resources</b> uses a different one.
-          Going to <b>/guide</b> from any other page uses it's own transition.
-        </p>
+          <p>
+            Look at the <b>console</b> statements in the console tab to see the order of hook events.
+            <b>leave</b> runs when leaving from <b>/index</b> and <b>enter</b> will run when going to <b>/guide</b>.
+            It's easy to get confused when a hook will run when adding rules.
+          </p>
 
-        <p>
-          Look at the <b>console</b> statements in the console tab to see the order of hook events.
-          <b>leave</b> runs when leaving from <b>/index</b> and <b>enter</b> will run when going to <b>/guide</b>.
-          It's easy to get confused when a hook will run when adding rules.
-        </p>
+          <p>
+            <b>/guide</b> to <b>/resources</b> does nothing! Try something out for it.
+          </p>
 
-        <p>
-          <b>/guide</b> to <b>/resources</b> does nothing! Try something out for it.
-        </p>
+          <p>
+            Also, I put <b>overflow-x: hidden;</b> on the <b>body</b> tag to prevent horizontal
+            scrollbars during the transitions.
+          </p>
 
-        <p>
-          Also, I put <b>overflow-x: hidden;</b> on the <b>body</b> tag to prevent horizontal
-          scrollbars during the transitions.
-        </p>
+          <p>
+            Here is the section on <a href="https://barba.js.org/docs/userguide/syntax/#Rules">rules in the docs</a>.
+          </p>
+        </section>
+      </article>
+    </main>
+  </section>
 
-        <p>
-          Here is the section on <a href="https://barba.js.org/docs/userguide/syntax/#Rules">rules in the docs</a>.
-        </p>
-      </section>
-    </article>
-
-  </main>
   <footer class="footer">
     <section class="footer__section">
       <p>
@@ -115,23 +116,6 @@
     </section>
   </footer>
 
-  <!-- Fathom - simple website analytics - https://usefathom.com -->
-  <script>
-    (function(f, a, t, h, o, m) {
-      a[h] = a[h] || function() {
-        (a[h].q = a[h].q || []).push(arguments)
-      };
-      o = f.createElement('script'),
-        m = f.getElementsByTagName('script')[0];
-      o.async = 1;
-      o.src = t;
-      o.id = 'fathom-script';
-      m.parentNode.insertBefore(o, m)
-    })(document, window, 'https://cdn.usefathom.com/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'BSOEXRWG');
-    fathom('trackPageview');
-  </script>
-  <!-- / Fathom -->
 </body>
 
 <script src="js/barba.core.js"></script>
