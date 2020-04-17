@@ -482,7 +482,6 @@ main {
   .toc__chapter-sections {
     grid-area: details;
     display: grid;
-    grid-template-rows: 4rem;
     padding: 2rem 0; }
   .toc__chapter-sections-item-section em {
     font-weight: 500;
