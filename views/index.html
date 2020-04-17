@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Barba.js Guide</title>
+  <title>Views</title>
 
   <link rel="stylesheet" href="css/styles.css">
 
@@ -55,7 +55,7 @@
   </style>
 </head>
 
-<body data-barba="wrapper">
+<body>
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
@@ -68,36 +68,37 @@
   </header>
 
 
-  <main data-barba="container" data-barba-namespace="index" data-title="Intro">
-    <article class="index page">
-      <header>
-        <h1>Views</h1>
-      </header>
+  <section data-barba="wrapper">
+    <main data-barba="container" data-barba-namespace="index" data-title="Intro">
+      <article class="index page">
+        <header>
+          <h1>Views</h1>
+        </header>
 
-      <section class="index__section">
-        <p>
-          <b>Views</b> allow us to target a specific page. They are great for customizing animations or
-          doing logic for a certain page. They are pretty straight-forward.
-        </p>
+        <section class="index__section">
+          <p>
+            <b>Views</b> allow us to target a specific page. They are great for customizing animations or
+            doing logic for a certain page. They are pretty straight-forward.
+          </p>
 
-        <p>
-          Checkout the code for some animations on the <b>/guide</b> page. I've set the selector <b>.toc__chapter</b>
-          to opacity: 0 in the stylesheet and then used GSAP in a <b>view</b> namespace to apply a staggering fade
-          with the <b>afterEnter</b> hook.
-        </p>
+          <p>
+            Checkout the code for some animations on the <b>/guide</b> page. I've set the selector <b>.toc__chapter</b>
+            to opacity: 0 in the stylesheet and then used GSAP in a <b>view</b> namespace to apply a staggering fade
+            with the <b>afterEnter</b> hook.
+          </p>
 
-        <p>
-          On the <b>/resources</b> page, I grabbed an attribute on the container and
-          set the page header with it using a <b>beforeEnter</b> hook.
-        </p>
+          <p>
+            On the <b>/resources</b> page, I grabbed an attribute on the container and
+            set the page header with it using a <b>beforeEnter</b> hook.
+          </p>
 
-        <p>
-          Hopefully this gives you a good idea of what these can be used for...
-        </p>
-      </section>
-    </article>
-
-  </main>
+          <p>
+            Hopefully this gives you a good idea of what these can be used for...
+          </p>
+        </section>
+      </article>
+    </main>
+  </section>
   <footer class="footer">
     <section class="footer__section">
       <p>
