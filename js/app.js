@@ -1,6 +1,17 @@
+
+function delay(n) {
+  n = n || 2000;
+  return new Promise(done => {
+    setTimeout(() => {
+      done();
+    }, n);
+  });
+}
+
 barba.init({
   transitions: [
     {
+      sync: true,
       name: 'fade',
       once({current, next, trigger}) {
         return new Promise(resolve => {
@@ -22,118 +33,27 @@ barba.init({
       }
     },
     {
-      name: 'index-to-guide',
-      from: {
-          namespace: ['index', 'guide']
-      },
-      to: {
-          namespace: ['guide', 'index']
-      },
-      leave({current, next, trigger}) {
+      async leave({current, next, trigger}) {
         console.log('index-to-guide: leave');
-        return new Promise(resolve => {
 
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-              current.container.remove();
-            }
-          })
+        const done = this.async();
 
-          timeline
-            .to(current.container, {opacity: 0, x: 500, ease: 'circ'});
-        })
+        const timeline = gsap.timeline();
+        timeline
+          .to(current.container, {opacity: 0, x: 500, ease: 'circ'});
+
+        await delay(1000);
+        done();
+
       },
       enter({current, next, trigger}) {
         console.log('index-to-guide: enter');
-        return new Promise(resolve => {
 
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
+        const timeline = gsap.timeline();
+        timeline
+          .from(next.container, {opacity: 0, x: -500})
+          .to(next.container, {opacity: 1, x: 0, ease: 'circ'});
 
-          timeline
-            .from(next.container, {opacity: 0, x: -500})
-            .to(next.container, {opacity: 1, x: 0, ease: 'circ'});
-        })
-      }
-    },
-    {
-      name: 'index-to-resources',
-      from: {
-          namespace: ['index', 'resources']
-      },
-      to: {
-          namespace: ['resources', 'index']
-      },
-      leave({current, next, trigger}) {
-        console.log('index-to-resources: leave');
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-              current.container.remove();
-            }
-          })
-
-          timeline
-            .to(current.container, {opacity: 0, x: -500, ease: 'circ'});
-        })
-      },
-      enter({current, next, trigger}) {
-        console.log('index-to-resources: enter');
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          timeline
-            .from(next.container, {opacity: 0, x: 500})
-            .to(next.container, {opacity: 1, x: 0, ease: 'circ'});
-        })
-      }
-    },
-    {
-      name: 'to-guide',
-      to: {
-          namespace: ['guide']
-      },
-      leave({current, next, trigger}) {
-        console.log('to-guide: leave');
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-              current.container.remove();
-            }
-          })
-
-          timeline
-            .to(current.container, {opacity: 0, y: 500, ease: 'circ'});
-        })
-      },
-      enter({current, next, trigger}) {
-        console.log('to-guide: enter');
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          timeline
-            .set(next.container, {overflow: 'hidden'})
-            .from(next.container, {opacity: 0, y: 500})
-            .to(next.container, {opacity: 1, y: 0, ease: 'circ'});
-        })
       }
     }
   ],
