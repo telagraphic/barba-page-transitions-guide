@@ -71,13 +71,28 @@
     <main data-barba="container" data-barba-namespace="index" data-title="Intro">
       <article class="index page">
         <header>
-          <h1>Sync Mode</h1>
+          <h1>Code</h1>
         </header>
 
         <section class="index__section">
           <p>
-            Sync mode enables you play enter and leave hooks <a href="https://barba.js.org/docs/advanced/transitions/#Sync-mode">at the same time</a>.
-            The idea being that you can have better control over the transition timing.
+            Writing code in your hooks can take several forms. But one thing to keep in mind is that
+            transitions are <b>asynchronous</b>. When writing your transition code in GSAP, Anime.js, Three.js
+            or whatever you choose, you must realize that when these transitions are done, we need to tell the
+            hook that we are done and start the next hook change.
+
+            <a href="https://github.com/barbajs/barba/issues/357">Here is a good explanation from the issues board</a>.
+            <a href="https://eloquentjavascript.net/11_async.html">Eloquent Javascript</a> has a nice chapter on asynchronous programming.
+          </p>
+
+          <p>
+            All the different ways are <a href="https://barba.js.org/docs/advanced/hooks/#Base-hooks">explained in the docs</a>.
+          </p>
+
+          <p>
+            Promises are meant for such situations, most of the code in these examples use promises.
+            Barba also allows for sync mode, which means that the <b>enter</b> and <b>leave</b> hooks play at the same time.
+            This requires adding a delay into the code to make sure the timeline of things works out.
           </p>
         </section>
       </article>
