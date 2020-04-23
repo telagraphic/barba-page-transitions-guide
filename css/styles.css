@@ -368,7 +368,10 @@ body {
   .header .github-button-section {
     display: flex;
     align-items: center;
-    padding: 0 0 0 20vw; }
+    padding: 0 0 0 11%; }
+    @media (min-width: 42rem) {
+      .header .github-button-section {
+        padding: 0 0 0 20vw; } }
   .header .docs {
     padding: 0 1rem;
     color: #ff79c6;
@@ -419,14 +422,19 @@ main {
 
 .footer {
   grid-area: footer;
-  padding: 1rem;
   background: #6272a4; }
   .footer__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 0 0 20vw;
-    width: 60vw; }
+    width: 89%;
+    padding: 0 0 0 5.5%; }
+    @media (min-width: 42rem) {
+      .footer__section {
+        width: 60vw; } }
+    @media (min-width: 42rem) {
+      .footer__section {
+        padding: 0 0 0 20vw; } }
   .footer p {
     padding: 0;
     margin: 0; }
@@ -442,7 +450,10 @@ main {
 .index {
   display: flex;
   flex-direction: column;
-  width: 60vw; }
+  width: 89%; }
+  @media (min-width: 42rem) {
+    .index {
+      width: 60vw; } }
   .index__section {
     font-size: calc(16px + (38 - 16) * ((100vw - 320px) / (3000 - 320))); }
     .index__section a {
@@ -456,8 +467,10 @@ main {
 .guide {
   display: flex;
   flex-direction: column;
-  width: 60vw;
-  scroll-snap-type: y mandatory; }
+  width: 89%; }
+  @media (min-width: 42rem) {
+    .guide {
+      width: 60vw; } }
   .guide p {
     font-size: 2rem; }
   .guide a {
@@ -475,24 +488,42 @@ main {
     grid-template-columns: max-content;
     grid-template-rows: 10rem max-content;
     align-items: center;
-    padding: 4rem 0; }
+    padding: 1rem 0; }
     .toc__chapter:nth-last-child(n+2) {
       border-bottom: solid 0.5rem #cfcfc2; }
+    @media (min-width: 42rem) {
+      .toc__chapter {
+        padding: 4rem 0; } }
   .toc__chapter-title {
     grid-area: title;
     display: grid;
-    grid-template-columns: 10rem max-content; }
+    grid-template-columns: 1rem max-content; }
+    @media (min-width: 42rem) {
+      .toc__chapter-title {
+        grid-template-columns: 10rem max-content; } }
   .toc__chapter-number {
-    font-size: 8rem;
-    font-weight: 100; }
+    font-size: 2rem;
+    font-weight: 300; }
+    @media (min-width: 42rem) {
+      .toc__chapter-number {
+        font-size: 8rem;
+        font-weight: 100; } }
   .toc__chapter-name {
     padding: 0 0 0 2rem;
-    font-size: 8rem;
+    font-size: 2rem;
     font-weight: 300; }
+    @media (min-width: 42rem) {
+      .toc__chapter-name {
+        font-size: 8rem; } }
   .toc__chapter-sections {
     grid-area: details;
     display: grid;
-    padding: 2rem 0; }
+    padding: 0;
+    min-height: 10rem; }
+    @media (min-width: 42rem) {
+      .toc__chapter-sections {
+        padding: 2rem 0;
+        min-height: auto; } }
   .toc__chapter-sections-item-section em {
     font-weight: 500;
     font-style: normal; }

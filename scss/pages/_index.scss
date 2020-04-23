@@ -1,9 +1,14 @@
 @import '../config/variables';
+@import '../config/mixins';
 
 .index {
   display: flex;
   flex-direction: column;
-  width: $article-width;
+  width: $article-mobile-width;
+
+  @include desktop {
+    width: $article-width;
+  }
 
 
   &__section {

@@ -2,7 +2,6 @@
 
 .footer {
   grid-area: footer;
-  padding: 1rem;
 
   background: $blue;
 
@@ -11,9 +10,18 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 0 0 0 20vw;
+    width: $article-mobile-width;
 
-    width: $article-width;
+    @include desktop {
+      width: $article-width;
+    }
+
+    padding: 0 0 0 5.5%;
+
+    @include desktop {
+      padding: 0 0 0 20vw;
+    }
+
   }
 
   p {
