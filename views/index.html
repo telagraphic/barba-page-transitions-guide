@@ -76,7 +76,6 @@
         </header>
 
         <section class="index__section">
-          <h2 style="padding: 2rem 0 0 0;">Asynchronous</h2>
           <p>
             Writing code in your hooks can take several forms. But one thing to keep in mind is that
             transitions are <b>asynchronous</b>. Your transition code in GSAP, Anime.js, Three.js
@@ -97,37 +96,6 @@
             This requires adding a delay into the code to make sure the timeline of things works out.
           </p>
 
-
-        </section>
-
-        <section class="index__section">
-          <h2 style="padding: 2rem 0 0 0;">Synchronous</h2>
-          <p>
-            The below code is synchronous, it runs but Barba does not know it is complete.
-          </p>
-          <pre>
-            <code class="language-js">
-              barba.init({
-                transitions: [
-                  {
-                    sync: true,
-                    name: 'fade',
-                    enter({current, next, trigger}) {
-                      const timeline = gsap.timeline();
-                      timeline
-                        .to(current.container, {opacity: 1, ease: 'circ'});
-                    },
-                    leave({current, next, trigger}) {
-                      const timeline = gsap.timeline();
-                      timeline
-                        .to(current.container, {opacity: 0, ease: 'circ'});
-                    }
-                  }
-                ],
-                debug: true
-              });
-            </code>
-          </pre>
         </section>
       </article>
     </main>
