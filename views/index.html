@@ -81,34 +81,35 @@
             If you haven't 100% understood the promise code in the hook blocks, this section should help.
             Please <a href="https://javascript.info/async">read more about Promises</a>.
           </p>
-        </section>
-
-        <section class="index__section">
-          <pre>
-            <code class="language-javascript">
-              return new Promise(resolve => {
-
-                const timeline = gsap.timeline({
-                  onComplete() {
-                    resolve();
-                  }
-                })
-
-                timeline
-                  .from(next.container, {opacity: 0, y: 50})
-                  .to(next.container, {opacity: 1, y: 0});
-              })
-            </code>
-          </pre>
-        </section>
-
-        <section class="index__section">
           <p>
             <b>GSAP</b> is not asynchronous. Thus we wrap it in a promise.
             A promise can <b>resolve</b> or <b>reject</b>, typically resolving a desired result or
             rejecting when an error is thrown.
           </p>
+        </section>
 
+        <section class="index__section">
+          <pre>
+            <code class="language-javascript">
+              leave({current, next, trigger}) {
+                return new Promise(resolve => {
+
+                  const timeline = gsap.timeline({
+                    onComplete() {
+                      resolve();
+                      current.container.remove();
+                    }
+                  })
+
+                  timeline
+                    .to(current.container, {opacity: 0, y: 50});
+                })
+              }
+            </code>
+          </pre>
+        </section>
+
+        <section class="index__section">
           <p>
             Notice we are passing resolve as an argument to the new Promise constructor.
             We are then calling it with the parens attached to it in the <b>onComplete()</b> function.
@@ -119,7 +120,6 @@
 
           <p>
             With whatever animation library you use, you will probably need to change this syntax up.
-
           </p>
         </section>
       </article>
