@@ -7,6 +7,7 @@
   <title>Rules</title>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -75,9 +76,10 @@
         </header>
 
         <section class="index__section">
+          <h2 style="padding: 2rem 0 0 0;">Asynchronous</h2>
           <p>
             Writing code in your hooks can take several forms. But one thing to keep in mind is that
-            transitions are <b>asynchronous</b>. When writing your transition code in GSAP, Anime.js, Three.js
+            transitions are <b>asynchronous</b>. Your transition code in GSAP, Anime.js, Three.js
             or whatever you choose, you must realize that when these transitions are done, we need to tell the
             hook that we are done and start the next hook change.
 
@@ -94,6 +96,38 @@
             Barba also allows for sync mode, which means that the <b>enter</b> and <b>leave</b> hooks play at the same time.
             This requires adding a delay into the code to make sure the timeline of things works out.
           </p>
+
+
+        </section>
+
+        <section class="index__section">
+          <h2 style="padding: 2rem 0 0 0;">Synchronous</h2>
+          <p>
+            The below code is synchronous, it runs but Barba does not know it is complete.
+          </p>
+          <pre>
+            <code class="language-js">
+              barba.init({
+                transitions: [
+                  {
+                    sync: true,
+                    name: 'fade',
+                    enter({current, next, trigger}) {
+                      const timeline = gsap.timeline();
+                      timeline
+                        .to(current.container, {opacity: 1, ease: 'circ'});
+                    },
+                    leave({current, next, trigger}) {
+                      const timeline = gsap.timeline();
+                      timeline
+                        .to(current.container, {opacity: 0, ease: 'circ'});
+                    }
+                  }
+                ],
+                debug: true
+              });
+            </code>
+          </pre>
         </section>
       </article>
     </main>
@@ -112,6 +146,7 @@
 
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
 <script src="js/barba.core.js"></script>
 <script src="js/barba.css.js"></script>
 <script src="js/barba.prefetch.js"></script>

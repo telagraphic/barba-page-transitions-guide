@@ -27,25 +27,17 @@ barba.init({
     {
       sync: true,
       name: 'fade',
-      async enter({current, next, trigger}) {
-        console.log('index-to-guide: enter');
-
-        homeAnimation(next);
+      enter({current, next, trigger}) {
+        const timeline = gsap.timeline();
+        timeline
+          .to(current.container, {opacity: 1, ease: 'circ'});
       },
-      async leave({current, next, trigger}) {
-        console.log('index-to-guide: leave');
-
-        const done = this.async();
-
-        leaveAnimation(current);
-
-        await delay(1000);
-        done();
-        // current.container.remove();
-
-
+      leave({current, next, trigger}) {
+        const timeline = gsap.timeline();
+        timeline
+          .to(current.container, {opacity: 0, ease: 'circ'});
       }
     }
   ],
   debug: true
-})
+});
