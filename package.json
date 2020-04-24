@@ -14,8 +14,7 @@
     "build:js": "cp js/* dist/js",
     "build:fonts": "cp fonts/* dist/fonts",
     "build:img": "cp img/* dist/img",
-    "build": "run-s build:*",
-    "build:server": "browser-sync start --server --ss 'dist'"
+    "build": "run-s build:*"
   },
   "keywords": [],
   "author": "",
