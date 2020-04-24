@@ -87,6 +87,13 @@
             and you'll see both containers on the DOM during the transition.
           </p>
 
+          <p>
+            Note the <b>async</b> keyword before the <b>hook</b> name. This tells Barba this is an asynchronous function which
+            uses the <b>this.async()</b> to make it so. We call <b>done()</b> to tell Barba the code is done executing.
+            The <b>delay()</b> function accepts a time argument and makes the transition wait for however long.
+            You can see that it matches the duration of the GSAP transition code.
+          </p>
+
 
           <section class="index__section">
             <pre>
