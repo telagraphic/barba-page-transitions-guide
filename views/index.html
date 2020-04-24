@@ -7,6 +7,7 @@
   <title>Rules</title>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -68,7 +69,7 @@
   </header>
 
   <section data-barba="wrapper">
-    <main data-barba="container" data-barba-namespace="index" data-title="Intro">
+    <main data-barba="container" data-barba-namespace="index" data-title="Intro" style="z-index:10;">
       <article class="index page">
         <header>
           <h1>Sync Mode</h1>
@@ -78,6 +79,36 @@
           <p>
             Sync mode enables you play enter and leave hooks <a href="https://barba.js.org/docs/advanced/transitions/#Sync-mode">at the same time</a>.
             The idea being that you can have better control over the transition timing.
+          </p>
+
+          <p>
+            You'll need a setTimeout function to alter the duration of your transitions for overlapping them, if need be.
+            It's a bit different but is still asynchronous but kind of a manual async approach. Open the browser <b>dev tools</b>
+            and you'll see both containers on the DOM during the transition.
+          </p>
+
+
+          <section class="index__section">
+            <pre>
+            <code class="language-javascript">
+              async leave({current, next, trigger}) {
+                console.log('fade: leave');
+
+                let done = this.async();
+
+                const timeline = gsap.timeline();
+                timeline
+                  .to(current.container, {opacity: 0, duration: 1, ease: 'circ'});
+
+                await delay(1000);
+                done();
+              }
+            </code>
+          </pre>
+          </section>
+
+          <p>
+
           </p>
           <p>
             This repo by <a href="https://github.com/karanmhatre1">karanmhatre1</a> shows
@@ -106,6 +137,7 @@
 
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
 <script src="js/barba.core.js"></script>
 <script src="js/barba.css.js"></script>
 <script src="js/barba.prefetch.js"></script>
