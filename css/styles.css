@@ -568,4 +568,6 @@ main {
   transform: translate(0, 100%); }
   .interstitial h1 {
     color: #bd93f9;
+    font-size: 4rem;
+    opacity: 0;
     z-index: 100; }

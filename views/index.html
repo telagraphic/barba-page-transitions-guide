@@ -7,6 +7,7 @@
   <title>Barba.js Guide</title>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -68,70 +69,92 @@
     <main data-barba="container" data-barba-namespace="index" data-title="Intro">
       <article class="index page">
         <header>
-          <h1>Barba.js 101</h1>
+          <h1>Interstitials</h1>
         </header>
 
+
         <section class="index__section">
-          <p>
-            This guide is the result of my own learnings about <b>barba.js</b>, it's not meant to be
-            anything remotely official or in-depth to make you a superstar. But it will help
-            beginners and those wanting a quick start with the library. It can be confusing as heck
-            when starting out and I hope this will help. I've written out code examples to show you
-            how barba.js works in practice.
-          </p>
 
           <p>
-            I'm still an beginner, so please critique
-            nicely and I'll be happy to make updates. My goal is to make this awesome library easier to
-            understand and use! Websites are so much cooler with creative transitions.
+            Interstitials are those cool animated overlays that cover the page during
+            the transition and sometimes might have an animation that plays before showing the next page.
+            There are many variations! This page uses a simple vertical scroll up and down effect to
+            illustrate how this is done with <b>Barba.js</b>
+          </p>
+          <h3>CSS</h3>
+          <p>
+            Look in the <b>scss/objects/_interstitials.scss</b> to see the styles for settin up the
+            interstitial. The actual html for the interstitial is actually dynamically created and added
+            to the DOM in <b>js/app.js</b>. You could also just place this in your page html as well, just a
+            matter of preference.
+          </p>
+          <pre>
+            <code class="language-css">
+              .interstitial {
+                position: fixed;
+                top: 0;
+                left: 0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 100%;
+                height: 100%;
+
+                background: $green;
+                transform: translate(0, 100%);
+              }
+            </code>
+          </pre>
+          <p>
+            Look up any CSS you don't understand, we are basically making the interstitial the whole size of the
+            viewport with the <b>width & height</b> set to <b>100%</b>. We set <b>position: fixed</b> to
+            cover the screen when the user scrolls. To make this work with GSAP, we set <b>translate(0, 100%)</b>
+            so that it is hidden and we can see our page. More details on <a href="https://www.sitepoint.com/atoz-css-translate-vs-position/">translate here</a>
           </p>
         </section>
 
-
         <section class="index__section">
-          <h2>Using Animations</h2>
-          <p>
-            Before learning how to setup and use animations in your code, take a step back and consider
-            <a href="https://uxdesign.cc/motion-in-ux-design-9-points-to-get-started-e891974dc7ee">when and where to implement them</a>.
-            Think about how <a href="https://uxdesign.cc/the-ultimate-guide-to-proper-use-of-animation-in-ux-10bd98614fa9">they interplay with UX</a>.
-            Imagine all the possibilities of how they can <a href="https://medium.com/google-design/motion-design-doesnt-have-to-be-hard-33089196e6c2">fit into your interface designs</a>
-            and <a href="https://uxdesign.cc/good-to-great-ui-animation-tips-7850805c12e5">create eye-catching microinteractions</a>.
-          </p>
-        </section>
+          <h3 style="padding: 2rem 0 0 0;">Code</h3>
 
-        <section class="index__section">
-          <h2>Tools</h2>
-          <p>
-            This guide will use <a href="https://greensock.com/">GSAP</a> also known as <b>Greensock</b> for doing the animations.
-            You can also use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">CSS Animations</a>.
-            Look at the <a href="/resources.html">resources</a> for more information and learning materials.
-          </p>
-        </section>
+          <pre>
+            <code class="language-javascript">
+              // leave hook
 
-        <section class="index__section">
-          <h2>How to Use</h2>
+              timeline
+                .to(current.container, {opacity: 0, y: 50})
+                .to('.interstitial', {y: 0, duration: .5, ease: 'circ'});
+            </code>
+          </pre>
+
           <p>
-            You'll need to have <b>node</b> and <b>npm</b> installed on your system to make this work.
-            There is plenty of documentation to help get this setup on your machine.
+            The <b>leave</b> and <b>beforeEnter</b> hooks is where the interstitial animation is done.
+            You could use <b>afterLeave</b> instead of <b>leave</b> too.
+            On the <b>leave</b> we are animating the width of
+            the interstitial element to be 0 which overlays the element on the entire viewport.
           </p>
+
+          <pre>
+            <code class="language-javascript">
+              // beforeEnter hook
+
+              timeline
+                .set(next.container, {opacity: 0, y: 50})
+                .to('.interstitial', {y: '100%', duration: 1, delay: 2})
+                .to('.interstitial h1', {opacity: 1}, 0)
+                .to('.interstitial h1', {opacity: 0}, 1.5);
+            </code>
+          </pre>
+
           <p>
-            This guide is arranged with git branches, because that is how I put this together.
-            You will need to understand how to <a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout">checkout git branches</a>.
-            As you checkout each branch you can see the code in your editor to follow along.
-            Run <b>npm run server</b> to start up a local dev server in your browser.
-            Make changes to the code, save the file and see the changes in your browser!
+            The third parameter on lines <b>46-47</b> in <b>app.js</b> is a position parameter that
+            allows for timeline positioning, this <a href="https://www.youtube.com/watch?v=VkptNYadKR0">video explains it better</a>.
+
           </p>
-          <ol>
-            <li>
-              Dowload or Clone from <a href="https://github.com/telagraphic/page-transitions">repo</a>.
-            </li>
-            <li>
-              Run <b>npm install</b> in your terminal to install dependencies.
-            </li>
-            <li>
-              Run <b>npm run server</b> to start a local dev server.
-            </li>
-          </ol>
+
+
+
         </section>
       </article>
     </main>
@@ -148,23 +171,6 @@
     </section>
   </footer>
 
-  <!-- Fathom - simple website analytics - https://usefathom.com -->
-  <script>
-    (function(f, a, t, h, o, m) {
-      a[h] = a[h] || function() {
-        (a[h].q = a[h].q || []).push(arguments)
-      };
-      o = f.createElement('script'),
-        m = f.getElementsByTagName('script')[0];
-      o.async = 1;
-      o.src = t;
-      o.id = 'fathom-script';
-      m.parentNode.insertBefore(o, m)
-    })(document, window, 'https://cdn.usefathom.com/tracker.js', 'fathom');
-    fathom('set', 'siteId', 'BSOEXRWG');
-    fathom('trackPageview');
-  </script>
-  <!-- / Fathom -->
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
