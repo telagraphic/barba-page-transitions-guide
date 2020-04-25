@@ -555,6 +555,28 @@ main {
     .resources__section li {
       padding: .5rem; }
 
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+  border-radius: 1.125rem;
+  background: #f8f8f0; }
+
+code.language-css {
+  color: #50fa7b; }
+  code.language-css .token.string {
+    color: #50fa7b; }
+  code.language-css .atrule {
+    color: #383a59; }
+  code.language-css .rule {
+    color: #383a59;
+    color: #6272a4; }
+  code.language-css .punctuation {
+    color: #6272a4; }
+  code.language-css .token.selector {
+    color: #282a36; }
+  code.language-css .property {
+    color: #ff5555; }
+
 .interstitial {
   position: fixed;
   top: 0;
