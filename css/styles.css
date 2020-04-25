@@ -464,6 +464,20 @@ main {
     .index__section b {
       color: #bd93f9; }
 
+.gallery {
+  display: flex;
+  flex-direction: column;
+  width: 60vw; }
+  .gallery__photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); }
+  .gallery__photo {
+    width: 100%; }
+  .gallery__photo-img {
+    max-width: 100%;
+    height: 100%;
+    height: auto; }
+
 .guide {
   display: flex;
   flex-direction: column;

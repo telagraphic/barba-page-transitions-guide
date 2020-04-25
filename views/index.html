@@ -76,85 +76,46 @@
         <section class="index__section">
 
           <p>
-            Interstitials are those cool animated overlays that cover the page during
-            the transition and sometimes might have an animation that plays before showing the next page.
-            There are many variations! This page uses a simple vertical scroll up and down effect to
-            illustrate how this is done.
+            The <b>gallery</b> page contains images that we want to animate in but we want to make
+            sure they have loaded first. A common library to use is the great <a href="https://github.com/desandro/imagesloaded">imagesLoaded.js</a>.
+            Take a look at the <b>gallery</b> transition on line <b>54</b> in <b>app.js</b>.
           </p>
-          <h3>CSS</h3>
           <p>
-            Look in the <b>scss/objects/_interstitials.scss</b> to see the styles for settin up the
-            interstitial. The actual html for the interstitial is actually dynamically created and added
-            to the DOM in <b>js/app.js</b>. You could also just place this in your page html as well, just a
-            matter of preference.
+            <b>imagesLoaded.js</b> needs a selector and callback function to work. I used all the <b>img</b> elements
+            for the first argument. You could also use a container selector and it will get all the descendant images therein.
           </p>
-          <pre>
-            <code class="language-css">
-              .interstitial {
-                position: fixed;
-                top: 0;
-                left: 0;
-
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                width: 100%;
-                height: 100%;
-
-                background: $green;
-                transform: translate(0, 100%);
-              }
-            </code>
-          </pre>
           <p>
-            Look up any CSS you don't understand, we are basically making the interstitial the whole size of the
-            viewport with the <b>width & height</b> set to <b>100%</b>. We set <b>position: fixed</b> to
-            cover the screen when the user scrolls. To make this work with GSAP, we set <b>translate(0, 100%)</b>
-            so that it is hidden and we can see our page. More details on <a href="https://www.sitepoint.com/atoz-css-translate-vs-position/">translate here</a>
+            For the callback, we simply cut and paste our GSAP code into the anonymous function but why?
+            Since we moved the GSAP code into the imagesLoaded callback it breaks our animation code and will show
+            our <b>next.container</b> which causes unwanted 'content flickering'.
+
+            We hide the container and the images on lines <b>62-63</b> so that after the imagesLoaded code is done, the transition can
+            work it's magic. Comment out these lines and see the difference.
           </p>
-        </section>
-
-        <section class="index__section">
-          <h3 style="padding: 2rem 0 0 0;">Code</h3>
-
           <pre>
             <code class="language-javascript">
-              // leave hook
+enter({current, next, trigger}) {
+  return new Promise(resolve => {
+    const images = document.querySelectorAll('img');
 
-              timeline
-                .to(current.container, {opacity: 0, y: 50})
-                .to('.interstitial', {y: 0, duration: .5, ease: 'circ'});
+    gsap.set(next.container, {opacity: 0, y: 50});
+    gsap.set('.gallery__photo', {opacity: 0});
+
+    imagesLoaded(images, () => {
+      const timeline = gsap.timeline({
+        onComplete() {
+          resolve();
+        }
+      })
+
+      timeline
+        .to(next.container, {opacity: 1, y: 0, delay: 1, ease: 'power4.out'})
+        .to('.gallery__photo', {opacity: 1, stagger: .125});
+    })
+  })
+}
             </code>
           </pre>
-
-          <p>
-            The <b>leave</b> and <b>beforeEnter</b> hooks is where the interstitial animation is done.
-            You could use <b>afterLeave</b> instead of <b>leave</b> too.
-            On the <b>leave</b> we are animating the width of
-            the interstitial element to be 0 which overlays the element on the entire viewport.
-          </p>
-
-          <pre>
-            <code class="language-javascript">
-              // beforeEnter hook
-
-              timeline
-                .set(next.container, {opacity: 0, y: 50})
-                .to('.interstitial', {y: '100%', duration: 1, delay: 2})
-                .to('.interstitial h1', {opacity: 1}, 0)
-                .to('.interstitial h1', {opacity: 0}, 1.5);
-            </code>
-          </pre>
-
-          <p>
-            The third parameter on lines <b>46-47</b> in <b>app.js</b> is a position parameter that
-            allows for timeline positioning, this <a href="https://www.youtube.com/watch?v=VkptNYadKR0">video explains it better</a>.
-
-          </p>
-
-
-
         </section>
       </article>
     </main>
@@ -174,6 +135,7 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+<script src="js/imagesLoaded.js"></script>
 <script src="js/barba.core.js"></script>
 <script src="js/barba.css.js"></script>
 <script src="js/barba.prefetch.js"></script>

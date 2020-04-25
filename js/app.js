@@ -1,14 +1,3 @@
-const body = document.querySelector('body');
-
-const interstitial = document.createElement('section');
-interstitial.classList.add('interstitial');
-
-const interstitialHeader = document.createElement('h1');
-interstitialHeader.innerText = 'Transition';
-interstitial.appendChild(interstitialHeader);
-
-body.appendChild(interstitial);
-
 barba.init({
   transitions: [
     {
@@ -29,22 +18,6 @@ barba.init({
             .to('nav a', {opacity: 1, stagger: .1, y: '0%', delay: .15}, 0)
             .to('.github-button-section', {opacity: 1, y: '0%', duration: 1}, 0)
             .to('.page', {opacity: 1, y: 0}, 0);
-        })
-      },
-      beforeEnter({current, next, trigger}) {
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          timeline
-            .set(next.container, {opacity: 0, y: 50})
-            .to('.interstitial', {y: '100%', duration: 1, delay: 2})
-            .to('.interstitial h1', {opacity: 1}, 0)
-            .to('.interstitial h1', {opacity: 0}, 1.5);
 
         })
       },
@@ -58,8 +31,8 @@ barba.init({
           })
 
           timeline
-            .set(next.container, {opacity: 0, y: 50})
-            .to(next.container, {opacity: 1, y: 0, ease: 'circ', duration: .25});
+            .from(next.container, {opacity: 0, y: 50})
+            .to(next.container, {opacity: 1, y: 0, ease: 'power4.out', duration: .25});
         })
       },
       leave({current, next, trigger}) {
@@ -73,11 +46,51 @@ barba.init({
           })
 
           timeline
-            .to(current.container, {opacity: 0, y: 50})
-            .to('.interstitial', {y: 0, duration: .5, ease: 'circ'});
+            .to(current.container, {opacity: 0, y: 50});
         })
       }
     },
+    {
+      name: 'gallery',
+      to: {
+        namespace: ['gallery']
+      },
+      enter({current, next, trigger}) {
+        return new Promise(resolve => {
+          const images = document.querySelectorAll('img');
+
+          gsap.set(next.container, {opacity: 0, y: 50});
+          gsap.set('.gallery__photo', {opacity: 0});
+
+          imagesLoaded(images, () => {
+            const timeline = gsap.timeline({
+              onComplete() {
+                resolve();
+              }
+            })
+
+            timeline
+              .to(next.container, {opacity: 1, y: 0, delay: 1, ease: 'power4.out'})
+              .to('.gallery__photo', {opacity: 1, stagger: .125});
+          })
+        })
+      },
+      leave({current, next, trigger}) {
+
+        return new Promise(resolve => {
+
+          const timeline = gsap.timeline({
+            onComplete() {
+              resolve();
+              current.container.remove();
+            }
+          })
+
+          timeline
+            .to(current.container, {opacity: 0, y: 50});
+        })
+      }
+    }
   ],
   debug: true
 })
