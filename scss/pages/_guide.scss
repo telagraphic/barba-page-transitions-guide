@@ -1,14 +1,22 @@
 @import '../config/variables';
+@import '../config/mixins';
 
 .guide {
   display: flex;
   flex-direction: column;
-  width: $article-width;
+  width: $article-mobile-width;
 
-  scroll-snap-type: y mandatory;
+  @include desktop {
+    width: $article-width;
+  }
+
+  h1 {
+    font-weight: 500;
+  }
 
   p {
     font-size: 2rem;
+    font-weight: 300;
   }
 
   a {
@@ -36,37 +44,63 @@
     grid-template-rows: 10rem max-content;
     align-items: center;
 
-    padding: 4rem 0;
+    padding: 1rem 0;
 
     &:nth-last-child(n+2) {
       border-bottom: solid .5rem $sandstone;
     }
+
+    @include desktop {
+      padding: 4rem 0;
+    }
+
   }
 
   &__chapter-title {
     grid-area: title;
     display: grid;
-    grid-template-columns: 10rem max-content;
+    grid-template-columns: 1rem max-content;
+
+    @include desktop {
+      grid-template-columns: 10rem max-content;
+    }
   }
 
   &__chapter-number {
-    font-size: 8rem;
-    font-weight: 100;
+    font-size: 2rem;
+    font-weight: 300;
+
+    @include desktop {
+      font-size: 8rem;
+      font-weight: 300;
+    }
 
   }
 
   &__chapter-name {
     padding: 0 0 0 2rem;
-    font-size: 8rem;
+
+
+    font-size: 2rem;
     font-weight: 300;
+
+    @include desktop {
+      font-size: 8rem;
+    }
 
   }
   &__chapter-sections {
     grid-area: details;
     display: grid;
-    grid-template-rows: 4rem;
 
-    padding: 2rem 0;
+    padding: 0;
+
+    min-height: 10rem;
+
+    @include desktop {
+      padding: 2rem 0;
+      min-height: auto;
+    }
   }
   &__chapter-sections-item {
 
@@ -74,16 +108,8 @@
 
   &__chapter-sections-item-section {
     em {
-      font-weight: 500;
-      font-style: normal;
-    }
-  }
-  &__chapter-sections-item-details {
-    p {
-      padding: 0;
-      margin: 0;
-
       font-weight: 300;
+      font-style: normal;
     }
   }
 }
