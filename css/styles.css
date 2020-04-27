@@ -366,7 +366,20 @@ body {
   padding: 1rem 0;
   background: #6272a4; }
   .header .github-button-section {
-    padding: 0 0 0 20vw; }
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 11%; }
+    @media (min-width: 42rem) {
+      .header .github-button-section {
+        padding: 0 0 0 20vw; } }
+  .header .docs {
+    padding: 0 1rem;
+    color: #ff79c6;
+    text-decoration: none;
+    font-weight: 600; }
+    .header .docs:hover, .header .docs:focus {
+      text-decoration: none;
+      color: #ff93d1; }
 
 nav {
   display: flex;
