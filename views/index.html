@@ -20,6 +20,20 @@
   <style>
     @font-face {
       font-family: "Inter";
+      src: url('fonts/Inter-Thin.woff2') format('woff2'), url('fonts/Inter-Thin.woff') format('woff');
+      font-display: swap;
+      font-weight: 100;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Light.woff2') format('woff2'), url('fonts/Inter-Light.woff') format('woff');
+      font-display: swap;
+      font-weight: 300;
+    }
+
+    @font-face {
+      font-family: "Inter";
       src: url('fonts/Inter-Regular.woff2') format('woff2'), url('fonts/Inter-Regular.woff') format('woff');
       font-display: swap;
       font-weight: 500;
@@ -59,6 +73,7 @@
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
+      <a class="docs" href="https://barba.js.org/docs/getstarted/intro/" target="_blank">Docs</a>
     </section>
     <nav>
       <a href="index.html">Home</a>
@@ -93,11 +108,6 @@
           </p>
 
           <p>
-            Also, I put <b>overflow-x: hidden;</b> on the <b>body</b> tag to prevent horizontal
-            scrollbars during the transitions.
-          </p>
-
-          <p>
             Here is the section on <a href="https://barba.js.org/docs/userguide/syntax/#Rules">rules in the docs</a>.
           </p>
         </section>
@@ -119,9 +129,6 @@
 </body>
 
 <script src="js/barba.core.js"></script>
-<script src="js/barba.css.js"></script>
-<script src="js/barba.prefetch.js"></script>
-<script src="js/barba.router.js"></script>
 <script src="js/gsap.min.js"></script>
 <script src="js/app.js"></script>
 
