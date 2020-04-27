@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Barba.js Guide</title>
+  <title>Interstitials</title>
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css" />
@@ -15,6 +15,20 @@
   <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Thin.woff2') format('woff2'), url('fonts/Inter-Thin.woff') format('woff');
+      font-display: swap;
+      font-weight: 100;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Light.woff2') format('woff2'), url('fonts/Inter-Light.woff') format('woff');
+      font-display: swap;
+      font-weight: 300;
+    }
+
     @font-face {
       font-family: "Inter";
       src: url('fonts/Inter-Regular.woff2') format('woff2'), url('fonts/Inter-Regular.woff') format('woff');
@@ -90,21 +104,21 @@
           </p>
           <pre>
             <code class="language-css">
-              .interstitial {
-                position: fixed;
-                top: 0;
-                left: 0;
+    .interstitial {
+      position: fixed;
+      top: 0;
+      left: 0;
 
-                display: flex;
-                justify-content: center;
-                align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-                width: 100%;
-                height: 100%;
+      width: 100%;
+      height: 100%;
 
-                background: $green;
-                transform: translate(0, 100%);
-              }
+      background: $green;
+      transform: translate(0, 100%);
+    }
             </code>
           </pre>
           <p>
@@ -120,11 +134,11 @@
 
           <pre>
             <code class="language-javascript">
-              // leave hook
+    // leave hook
 
-              timeline
-                .to(current.container, {opacity: 0, y: 50})
-                .to('.interstitial', {y: 0, duration: .5, ease: 'circ'});
+    timeline
+      .to(current.container, {opacity: 0, y: 50})
+      .to('.interstitial', {y: 0, duration: .5, ease: 'circ'});
             </code>
           </pre>
 
@@ -137,13 +151,13 @@
 
           <pre>
             <code class="language-javascript">
-              // beforeEnter hook
+    // beforeEnter hook
 
-              timeline
-                .set(next.container, {opacity: 0, y: 50})
-                .to('.interstitial', {y: '100%', duration: 1, delay: 2})
-                .to('.interstitial h1', {opacity: 1}, 0)
-                .to('.interstitial h1', {opacity: 0}, 1.5);
+    timeline
+      .set(next.container, {opacity: 0, y: 50})
+      .to('.interstitial', {y: '100%', duration: 1, delay: 2})
+      .to('.interstitial h1', {opacity: 1}, 0)
+      .to('.interstitial h1', {opacity: 0}, 1.5);
             </code>
           </pre>
 
