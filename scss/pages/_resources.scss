@@ -12,7 +12,7 @@
   a {
     text-decoration: underline;
 
-    color: $sandstone;
+    color: $very-light-gray;
 
     transition: color .25s ease-in-out;
 
@@ -22,15 +22,9 @@
     }
   }
 
-  &__header {
-    font-size: 2rem;
-    color: $green;
-  }
 
 
   &__section {
-    // padding: 5.5rem 0 .5rem 0;
-
     display: grid;
     grid-template-areas: "header" "content";
     grid-template-rows: 10vh 90vh;
@@ -43,6 +37,7 @@
     }
     li {
       padding: .5rem;
+      font-weight: 300;
     }
 
   }

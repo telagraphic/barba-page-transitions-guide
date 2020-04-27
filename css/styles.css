@@ -538,13 +538,10 @@ main {
     font-size: 2rem; }
   .resources a {
     text-decoration: underline;
-    color: #cfcfc2;
+    color: #f8f8f2;
     transition: color .25s ease-in-out; }
     .resources a:hover, .resources a:focus {
       color: #f7a349; }
-  .resources__header {
-    font-size: 2rem;
-    color: #50fa7b; }
   .resources__section {
     display: grid;
     grid-template-areas: "header" "content";
@@ -554,4 +551,5 @@ main {
     .resources__section ul {
       list-style-type: disc; }
     .resources__section li {
-      padding: .5rem; }
+      padding: .5rem;
+      font-weight: 300; }
