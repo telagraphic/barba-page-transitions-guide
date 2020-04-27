@@ -87,24 +87,8 @@ barba.init({
       beforeEnter({current, next, trigger}) {
         const pageTitleElement = document.querySelector('.resources__header')
         pageTitleElement.innerText = next.container.getAttribute('data-title');
-
-        return new Promise(resolve => {
-
-          const timeline = gsap.timeline({
-            onComplete() {
-              resolve();
-            }
-          })
-
-          timeline
-            .to('.resources__header', {opacity: 1, ease: 'circ'});
-        })
       }
     }
   ],
   debug: true
 })
-
-barba.hooks.after(() => {
-  fathom('set', 'spa', 'pushstate');
-});

@@ -1,7 +1,6 @@
 @import 'base/normalize';
 @import 'base/typography';
 @import 'base/defaults';
-@import 'base/links';
 
 @import 'config/functions';
 @import 'config/mixins';
@@ -15,6 +14,3 @@
 @import 'pages/index';
 @import 'pages/guide';
 @import 'pages/resources';
-
-
-@import 'objects/interstitial';
