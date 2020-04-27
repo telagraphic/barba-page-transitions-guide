@@ -12,7 +12,28 @@
   background: $blue;
 
   .github-button-section {
-    padding: 0 0 0 20vw;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 11%;
+
+    @include desktop {
+      padding: 0 0 0 20vw;
+    }
+  }
+
+  .docs {
+    padding: 0 1rem;
+
+    color: $pink;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: lighten($pink, 5%);
+    }
   }
 
 }

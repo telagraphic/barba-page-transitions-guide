@@ -1,0 +1,35 @@
+@import '../config/variables';
+
+
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+  border-radius: 1.125rem;
+  background: $lace;
+}
+
+code.language-css {
+
+  color: $green;
+
+  .token.string {
+    color: $green;
+  }
+
+  .atrule {
+    color: $dark-purple;
+  }
+  .rule {
+    color: $dark-purple;
+    color: $blue;
+  }
+  .punctuation {
+    color: $blue;
+  }
+  .token.selector {
+    color: $very-dark-gray;
+  }
+  .property {
+    color: $red;
+  }
+}
