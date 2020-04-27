@@ -319,16 +319,19 @@ h4 {
   margin: 0; }
 
 h1 {
+  padding: 2rem 0 .5rem 0;
   font-size: 2.5rem;
-  font-weight: 700; }
+  font-weight: 500; }
 
 h2 {
+  padding: 2rem 0 .5rem 0;
   font-size: 2.25rem;
-  font-weight: 700; }
+  font-weight: 400; }
 
 h3 {
+  padding: 2rem 0 .5rem 0;
   font-size: 2rem;
-  font-weight: 700; }
+  font-weight: 400; }
 
 img {
   max-width: 100%;
@@ -366,7 +369,20 @@ body {
   padding: 1rem 0;
   background: #6272a4; }
   .header .github-button-section {
-    padding: 0 0 0 20vw; }
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 11%; }
+    @media (min-width: 42rem) {
+      .header .github-button-section {
+        padding: 0 0 0 20vw; } }
+  .header .docs {
+    padding: 0 1rem;
+    color: #ff79c6;
+    text-decoration: none;
+    font-weight: 600; }
+    .header .docs:hover, .header .docs:focus {
+      text-decoration: none;
+      color: #ff93d1; }
 
 nav {
   display: flex;
@@ -412,7 +428,7 @@ main {
 
 .footer {
   grid-area: footer;
-  padding: 1rem;
+  padding: 2rem 0;
   background: #6272a4; }
   .footer__section {
     display: flex;
@@ -422,7 +438,8 @@ main {
     width: 60vw; }
   .footer p {
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    font-weight: 400; }
   .footer a {
     display: inline;
     color: #bd93f9;
@@ -517,18 +534,3 @@ main {
       list-style-type: disc; }
     .resources__section li {
       padding: .5rem; }
-
-.interstitial {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: #50fa7b;
-  transform: translate(0, 100%); }
-  .interstitial h1 {
-    color: #bd93f9;
-    z-index: 100; }
