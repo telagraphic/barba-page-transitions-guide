@@ -319,16 +319,19 @@ h4 {
   margin: 0; }
 
 h1 {
+  padding: 2rem 0 .5rem 0;
   font-size: 2.5rem;
-  font-weight: 700; }
+  font-weight: 500; }
 
 h2 {
+  padding: 2rem 0 .5rem 0;
   font-size: 2.25rem;
-  font-weight: 700; }
+  font-weight: 400; }
 
 h3 {
+  padding: 2rem 0 .5rem 0;
   font-size: 2rem;
-  font-weight: 700; }
+  font-weight: 400; }
 
 img {
   max-width: 100%;
@@ -422,22 +425,18 @@ main {
 
 .footer {
   grid-area: footer;
+  padding: 2rem 0;
   background: #6272a4; }
   .footer__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 89%;
-    padding: 0 0 0 5.5%; }
-    @media (min-width: 42rem) {
-      .footer__section {
-        width: 60vw; } }
-    @media (min-width: 42rem) {
-      .footer__section {
-        padding: 0 0 0 20vw; } }
+    padding: 0 0 0 20vw;
+    width: 60vw; }
   .footer p {
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    font-weight: 400; }
   .footer a {
     display: inline;
     color: #bd93f9;
@@ -485,8 +484,11 @@ main {
   @media (min-width: 42rem) {
     .guide {
       width: 60vw; } }
+  .guide h1 {
+    font-weight: 500; }
   .guide p {
-    font-size: 2rem; }
+    font-size: 2rem;
+    font-weight: 300; }
   .guide a {
     text-decoration: underline;
     color: #cfcfc2;
@@ -496,6 +498,8 @@ main {
 
 .toc {
   font-size: 2rem; }
+  .toc h3 {
+    padding: 0; }
   .toc__chapter {
     display: grid;
     grid-template-areas: 'title' 'details';
@@ -521,7 +525,7 @@ main {
     @media (min-width: 42rem) {
       .toc__chapter-number {
         font-size: 8rem;
-        font-weight: 100; } }
+        font-weight: 300; } }
   .toc__chapter-name {
     padding: 0 0 0 2rem;
     font-size: 2rem;
@@ -539,12 +543,8 @@ main {
         padding: 2rem 0;
         min-height: auto; } }
   .toc__chapter-sections-item-section em {
-    font-weight: 500;
+    font-weight: 300;
     font-style: normal; }
-  .toc__chapter-sections-item-details p {
-    padding: 0;
-    margin: 0;
-    font-weight: 300; }
 
 .resources {
   display: flex;
@@ -554,7 +554,7 @@ main {
     font-size: 2rem; }
   .resources a {
     text-decoration: underline;
-    color: #cfcfc2;
+    color: #f8f8f2;
     transition: color .25s ease-in-out; }
     .resources a:hover, .resources a:focus {
       color: #f7a349; }
@@ -567,7 +567,8 @@ main {
     .resources__section ul {
       list-style-type: disc; }
     .resources__section li {
-      padding: .5rem; }
+      padding: .5rem;
+      font-weight: 300; }
 
 pre[class*="language-"] {
   margin: 0;
@@ -590,20 +591,3 @@ code.language-css {
     color: #282a36; }
   code.language-css .property {
     color: #ff5555; }
-
-.interstitial {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: #50fa7b;
-  transform: translate(0, 100%); }
-  .interstitial h1 {
-    color: #bd93f9;
-    font-size: 4rem;
-    opacity: 0;
-    z-index: 100; }
