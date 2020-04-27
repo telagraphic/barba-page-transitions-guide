@@ -14,11 +14,21 @@
   <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="preload" href="fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
-
   <style>
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Thin.woff2') format('woff2'), url('fonts/Inter-Thin.woff') format('woff');
+      font-display: swap;
+      font-weight: 100;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('fonts/Inter-Light.woff2') format('woff2'), url('fonts/Inter-Light.woff') format('woff');
+      font-display: swap;
+      font-weight: 300;
+    }
+
     @font-face {
       font-family: "Inter";
       src: url('fonts/Inter-Regular.woff2') format('woff2'), url('fonts/Inter-Regular.woff') format('woff');
@@ -60,6 +70,7 @@
   <header class="header">
     <section class="github-button-section">
       <a class="github-button" href="https://github.com/telagraphic/page-transitions" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star telagraphic/page-transitions on GitHub">Star</a>
+      <a class="docs" href="https://barba.js.org/docs/getstarted/intro/" target="_blank">Docs</a>
     </section>
     <nav>
       <a href="index.html">Home</a>
@@ -90,25 +101,25 @@
           </p>
           <pre>
             <code class="language-js">
-              barba.init({
-                transitions: [
-                  {
-                    sync: true,
-                    name: 'fade',
-                    enter({current, next, trigger}) {
-                      const timeline = gsap.timeline();
-                      timeline
-                        .to(current.container, {opacity: 1, ease: 'circ'});
-                    },
-                    leave({current, next, trigger}) {
-                      const timeline = gsap.timeline();
-                      timeline
-                        .to(current.container, {opacity: 0, ease: 'circ'});
-                    }
-                  }
-                ],
-                debug: true
-              });
+  barba.init({
+    transitions: [
+      {
+        sync: true,
+        name: 'fade',
+        enter({current, next, trigger}) {
+          const timeline = gsap.timeline();
+          timeline
+            .to(current.container, {opacity: 1, ease: 'circ'});
+        },
+        leave({current, next, trigger}) {
+          const timeline = gsap.timeline();
+          timeline
+            .to(current.container, {opacity: 0, ease: 'circ'});
+        }
+      }
+    ],
+    debug: true
+  });
             </code>
           </pre>
         </section>

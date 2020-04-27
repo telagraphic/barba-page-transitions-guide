@@ -2,7 +2,7 @@
 
 .footer {
   grid-area: footer;
-  padding: 1rem;
+  padding: 2rem 0;
 
   background: $blue;
 
@@ -19,6 +19,8 @@
   p {
     padding: 0;
     margin: 0;
+
+    font-weight: 400;
   }
 
   a {
