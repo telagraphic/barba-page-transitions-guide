@@ -1,6 +1,8 @@
 # About
 
-A practical beginners guide to learning **Barba.js** for setting up page transitions using **GSAP** for animations.  
+A practical beginners guide to learning **Barba.js** for setting up page transitions using **GSAP** for animations.
+
+![Barba.js Guide For Beginners](https://github.com/telagraphic/barba-page-transitions-guide/blob/master/img/page-transitions-guide.gif)
 
 # Instructions
 
