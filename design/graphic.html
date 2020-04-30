@@ -1,0 +1,281 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gif Graphic</title>
+
+  <link rel="preload" href="../fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-Thin.woff2') format('woff2'), url('../fonts/Inter-Thin.woff') format('woff');
+      font-display: swap;
+      font-weight: 100;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-Light.woff2') format('woff2'), url('../fonts/Inter-Light.woff') format('woff');
+      font-display: swap;
+      font-weight: 300;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-Regular.woff2') format('woff2'), url('../fonts/Inter-Regular.woff') format('woff');
+      font-display: swap;
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-Medium.woff2') format('woff2'), url('../fonts/Inter-Medium.woff') format('woff');
+      font-display: swap;
+      font-weight: 600;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-Bold.woff2') format('woff2'), url('../fonts/Inter-Bold.woff') format('woff');
+      font-display: swap;
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-ExtraBold.woff2') format('woff2'), url('../fonts/Inter-ExtraBold.woff') format('woff');
+      font-display: swap;
+      font-weight: 800;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url('../fonts/Inter-Black.woff2') format('woff2'), url('../fonts/Inter-Black.woff') format('woff');
+      font-display: swap;
+      font-weight: 900;
+    }
+
+    body {
+      min-height: 100%;
+      width: 100%;
+      background-color: #383a59;
+
+    }
+
+    main {
+      display: grid;
+      height: 100%;
+      width: 100%;
+      place-items: center;
+    }
+
+    .box {
+      position: relative;
+
+      width: 50vw;
+      height: 50vh;
+      background-color: #383a59;
+
+      overflow: hidden;
+
+      z-index: 10;
+    }
+
+    .text-container {
+      display: grid;
+      place-items: center;
+
+      height: 100%;
+      width: 100%;
+
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      font-family: 'Inter';
+      font-weight: 600;
+      font-size: 5rem;
+    }
+
+    .text p {
+      margin: 0;
+      padding: 0;
+
+      color: #E6DB74;
+      z-index: 100;
+
+      animation-name: text-color;
+      animation-duration: 4s;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes text-color {
+      0% {
+        color: #E6DB74;
+      }
+
+      20% {
+        color: #383a59;
+      }
+
+      40% {
+        color: #ff5555;
+      }
+
+      75% {
+        color: #E6DB74;
+      }
+
+      100% {
+        color: #E6DB74;
+      }
+    }
+
+    .panel-1 {
+      position: absolute;
+      top: -50vh;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+      background-color: #ff79c6;
+
+      animation-name: panel-one;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+
+      z-index: 20;
+    }
+
+    @keyframes panel-one {
+      from {
+        top: -50vh;
+      }
+
+      to {
+        top: 0;
+      }
+    }
+
+    .panel-2 {
+      position: absolute;
+      top: 0;
+      left: -50vw;
+
+      width: 100%;
+      height: 100%;
+      background-color: #bbf3ff;
+
+      animation-name: panel-two;
+      animation-delay: .75s;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+
+      z-index: 20;
+    }
+
+    @keyframes panel-two {
+      from {
+        left: -50vw;
+      }
+
+      to {
+        left: 0;
+      }
+    }
+
+    .panel-3 {
+      position: absolute;
+      right: 0;
+      bottom: -50vw;
+
+      width: 100%;
+      height: 100%;
+      background-color: #50fa7b;
+
+      animation-name: panel-three;
+      animation-delay: 1.25s;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+
+      z-index: 20;
+    }
+
+    @keyframes panel-three {
+      from {
+        bottom: -50vw;
+      }
+
+      to {
+        bottom: 0;
+      }
+    }
+
+    .panel-4 {
+      position: absolute;
+      right: 0;
+      bottom: -50vw;
+
+      width: 100%;
+      height: 100%;
+      background-color: #383a59;
+
+      animation-name: panel-four;
+      animation-delay: 1.75s;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+
+      z-index: 20;
+    }
+
+    @keyframes panel-four {
+      from {
+        bottom: -50vw;
+      }
+
+      to {
+        bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <article class="box">
+      <section class="text-container">
+        <section class="text">
+          <p>Page</p>
+          <p>Transitions</p>
+        </section>
+      </section>
+
+      <section class="panel-1"></section>
+      <section class="panel-2"></section>
+      <section class="panel-3"></section>
+      <section class="panel-4"></section>
+
+    </article>
+  </main>
+
+
+</body>
+
+</html>
