@@ -489,7 +489,7 @@ main {
     padding: 0; }
   .toc__chapter {
     display: grid;
-    grid-template-areas: 'title' 'details';
+    grid-template-areas: 'title' 'description' 'details';
     grid-template-columns: max-content;
     grid-template-rows: 10rem max-content;
     align-items: center;
@@ -513,6 +513,8 @@ main {
       .toc__chapter-number {
         font-size: 8rem;
         font-weight: 300; } }
+  .toc__chapter-description {
+    color: #66d9ef; }
   .toc__chapter-name {
     padding: 0 0 0 2rem;
     font-size: 2rem;

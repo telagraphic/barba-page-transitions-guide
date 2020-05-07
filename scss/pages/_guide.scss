@@ -43,7 +43,7 @@
 
   &__chapter {
     display: grid;
-    grid-template-areas: 'title' 'details';
+    grid-template-areas: 'title' 'description' 'details';
     grid-template-columns: max-content;
     grid-template-rows: 10rem max-content;
     align-items: center;
@@ -80,6 +80,10 @@
       font-weight: 300;
     }
 
+  }
+
+  &__chapter-description {
+    color: $soft-cyan;
   }
 
   &__chapter-name {
