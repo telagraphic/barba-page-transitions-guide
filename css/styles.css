@@ -536,7 +536,8 @@ main {
 .resources {
   display: flex;
   flex-direction: column;
-  width: 60vw; }
+  width: 100%;
+  margin: -3rem 0; }
   .resources p {
     font-size: 2rem; }
   .resources a {
@@ -549,11 +550,28 @@ main {
     display: grid;
     grid-template-areas: "header" "content";
     grid-template-rows: 10vh 90vh;
+    width: 100%;
     font-size: 2rem;
     height: 100vh; }
-    .resources__section ul {
+    .resources__section:nth-child(even) {
+      background-color: #ff5555; }
+      .resources__section:nth-child(even) h2 {
+        color: #ffb86c; }
+  .resources__section-content {
+    display: flex;
+    flex-direction: column;
+    width: 89%;
+    margin: 0 auto; }
+    @media (min-width: 42rem) {
+      .resources__section-content {
+        width: 60vw; } }
+    .resources__section-content h2 {
+      padding: 5rem 0 .1rem 0;
+      font-size: 8vh; }
+    .resources__section-content ul {
+      padding: 2rem 0;
       list-style-type: disc; }
-    .resources__section li {
+    .resources__section-content li {
       padding: .5rem;
       font-weight: 300; }
 
