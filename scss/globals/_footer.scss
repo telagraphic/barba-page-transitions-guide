@@ -34,6 +34,7 @@
     &:focus {
       text-decoration: underline;
       color: lighten($purple, 4%);
+      color: $green;
     }
   }
 }

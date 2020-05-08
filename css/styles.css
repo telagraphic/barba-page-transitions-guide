@@ -444,7 +444,8 @@ main {
     transition: color .25s ease-in-out; }
     .footer a:hover, .footer a:focus {
       text-decoration: underline;
-      color: #c9a6fa; }
+      color: #c9a6fa;
+      color: #50fa7b; }
 
 .index {
   display: flex;
