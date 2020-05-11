@@ -440,6 +440,7 @@ main {
   .footer a {
     display: inline;
     color: #bd93f9;
+    color: #ff79c6;
     text-decoration: none;
     transition: color .25s ease-in-out; }
     .footer a:hover, .footer a:focus {
@@ -569,7 +570,7 @@ main {
       .resources__section-content {
         width: 60vw; } }
     .resources__section-content h2 {
-      padding: 5rem 0 .1rem 0;
+      padding: 10rem 0 .1rem 0;
       font-size: 8vh; }
     .resources__section-content ul {
       padding: 2rem 0;
