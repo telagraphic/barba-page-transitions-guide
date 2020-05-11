@@ -18,5 +18,5 @@ Make changes to the code, save the file and see the changes in your browser!
 
 1. Dowload or Clone from [repo](https://github.com/telagraphic/barba-page-transitions-guide).
 2. Run **npm install** in your terminal to install dependencies.
-3. Run **git checkout <branch-name>** to go to the lesson, run **git branch** to see all branches.
+3. Run **git checkout branch-name** to go to the lesson, run **git branch** to see all branches.
 3. Run **npm run server** to start a local dev server open it up in your browser!
